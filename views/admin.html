@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es" ng-app="romaef" charset="UTF-8">
+	<head>
+		<title>{{ title }}</title>
+	    <!-- Required meta tags -->
+	    <meta charset="utf-8">
+	    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		
+		<!-- redes sociales -->
+		<meta property="fb:app_id" content="309396412988609"/> 
+		<meta property="og:title" content="Inicio | romaef">
+		<meta property="og:url" content="http://www.romaef.com/#!/inicio">
+		<meta property="og:image" content="http://www.romaef.com/img/meta_tags/inicio.png">
+		<meta property="og:type" content="image.gallery">
+		<meta property="og:description" content="Ofrezco un desarrollo a la medida basado en los requirimientos de la idea que tienes para una web o una app.">
+		<!-- redes sociales -->
+		
+		<meta name="description" content="Ofrezco un desarrollo a la medida basado en los requirimientos de la idea que tienes para una web o una app.  Utilizando elementos y principios de diseño, con ayuda de componentes animados que proporciona retroalimentación a los usuarios.">
+		
+	    <!-- Fonts and icons -->
+	    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+		<!-- bootstrap -->
+		<!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> -->
+		<link src="/modulos/bootstrap/dist/css/bootstrap.css">
+		<!-- <script src="/modulos/bootstrap/dist/prueba.min.css"></script> -->
+		<!-- Material Dashboard CSS -->
+    	<link rel="stylesheet" href="/modulos/material-dashboard/assets/css/material-dashboard.css">
+		<link rel="stylesheet" href="/public/stylesheets/style.css">
+		<link rel="stylesheet" href="/public/admin/style.css">
+		
+		<!-- glyphicon -->
+		<link rel="stylesheet" href="/public/admin/bootstrap/css/bootstrap.css"> 
+
+		<link href="/modulos/lightbox2/dist/css/lightbox.min.css" rel="stylesheet">
+		<link href="/modulos/angular-multiple-select/build/multiple-select.min.css" rel="stylesheet">
+		
+		<!-- <base href="http://localhost:3000/">  -->
+	</head>
+	
+	<body ng-controller="globalAdmCtrl" ng-init="initGlobal()">
+		
+		<!-- las vistas -->
+	    <div ui-view></div>
+		<!-- las vistas -->
+		
+		<!-- modal -->
+		<div ng-include src="'/includes_admin/modal_message.html'"></div>
+		<div ng-include src="'/includes_admin/question_message.html'"></div>
+		<!-- modal -->
+		
+	    <!-- scripts -->
+	    <!-- angularJs1 -->
+	    <script src="/modulos/angular/angular.min.js"></script>
+    	<!-- <script src="/modulos/angular-route/angular-route.js"></script> -->
+		<!-- <script src="/modulos/angular-resource/angular-resource.js"></script> -->
+		<script src="/modulos/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+		<script src="/modulos/satellizer/dist/satellizer.min.js"></script>
+		
+    	<!-- app angular -->
+		<script src="/cliente/admin/app.js"></script>
+		<script src="/cliente/admin/config.js"></script>
+        <script src="/utiles/Utils.js"></script>
+		
+	    <!-- controladores -->
+		<script src="/controladores_admin/globalAdmCtrl.js"></script>
+		
+		<!-- administrador -->
+		<script src="/controladores_admin/loginAdmCtrl.js"></script>
+		<script src="/controladores_admin/perfilAdmCtrl.js"></script>
+		<script src="/controladores_admin/languagesAdmCtrl.js"></script>
+		<script src="/controladores_admin/empresasAdmCtrl.js"></script>
+		<script src="/controladores_admin/articulosAdmCtrl.js"></script>
+		<script src="/controladores_admin/inicioAdmCtrl.js"></script>
+	    <script src="/controladores_admin/clientesAdmCtrl.js"></script>
+	    <script src="/controladores_admin/productosAdmCtrl.js"></script>
+	    <script src="/controladores_admin/provedoresAdmCtrl.js"></script>
+	    <script src="/controladores_admin/comprasAdmCtrl.js"></script>
+	    <script src="/controladores_admin/empleadosAdmCtrl.js"></script>
+		<script src="/controladores_admin/nominaAdmCtrl.js"></script>
+		
+	    <!-- plugins material design-->
+	    <script src="/modulos/material-dashboard/assets/js/core/jquery.min.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/core/popper.min.js"></script>
+		<script src="/modulos/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/core/bootstrap-material-design.min.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/plugins/bootstrap-notify.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/plugins/chartist.min.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+		<script src="/modulos/material-dashboard/assets/js/material-dashboard.js" type="text/javascript"></script>
+		
+		<!-- ngupload -->
+		<script src="/modulos/ng-file-upload/dist/ng-file-upload.shim.min.js" type="text/javascript"></script>
+		<script src="/modulos/ng-file-upload/dist/ng-file-upload.min.js" type="text/javascript"></script>
+		
+		
+		<!-- otros -->
+		<script src="/modulos/lightbox2/dist/js/lightbox.min.js"></script>
+		<script src="/modulos/angular-multiple-select/build/multiple-select.min.js"></script>
+		
+  		<script>
+	    	$(document).ready(function() {
+	    		// activa el menu en tablets y pantallas pequeñas
+				$sidebar = $('.sidebar');
+				setTimeout(function(){
+	        		$('.modal-backdrop').html('');
+				}, 300);
+	    	});
+		</script>
+	</body>
+</html>

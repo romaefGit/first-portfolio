@@ -1,0 +1,208 @@
+<div ng-controller="hojadevidaCtrl" ng-init="init()" class="hojaDeVida">
+    <!-- Cargando div -->
+    <div ng-include src="'includes/loader.html'"></div>
+    <!-- Cargando div -->
+    
+    <!-- Experiencia -->
+    <div class="parallax-container valign-wrapper" style="min-height: 415px;">
+        <div class="absolute-action-btn menu-btn" ng-click="clickEnNavButton()">
+            <i class="material-icons">
+                menu
+            </i>
+        </div>
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <!-- Atómico  -->
+                    <div class="view atomico animated">
+                        <div class="plane-uno main">
+                            <div class="circle">
+                            </div>
+                            <div class="circle">
+                            </div>
+                            <div class="circle">
+                            </div>
+                            <div class="circle">
+                            </div>
+                            <div class="circle">
+                            </div>
+                            <div class="circle">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <h5 class="header col s12 light">Back-End</h5> -->
+                    <h5 class="textShadow" id="meta_title">
+                        Experiencia
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <!-- <div class="diagonal-dev-right-to-left-top">
+        </div> -->
+            <img alt="Unsplashed background img 3" src="{{imagenUno}}">
+                <div class="diagonal-dev-left-to-right-bottom">
+                </div>
+            </img>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <!-- vista para pantallas medias y largas -->
+                <!-- <div class="col s12 center hide-on-small-only"> -->
+                <div class="col s12 center">
+                    <h3>
+                        <i class="mdi-content-send brown-text">
+                        </i>
+                    </h3>
+                    <div class="row center">
+                        <div class="col s12">
+                            <div class="icon-block">
+                                <p class="light" id="meta_description">
+                                    En lo largo de mi vida profesional he trabajado en el desarrollo de paginas web y aplicaciones hibridas, llevo 4 años en esto y tengo conocimientos en diferentes lenguajes para la web que pueden ayudar mucho a la hora de llevar a cabo un proyecto.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- vista para pantallas pequeñas -->
+                <!--  <div class="col s12 center hide-on-med-and-up">
+                <div class="carousel" id="languagesFrontXs">
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- Aprendizaje -->
+    <div class="parallax-container valign-wrapper" style="min-height: 415px;">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <!-- Atómico  -->
+                    <!-- <div class="view">
+                  <div class="plane-dos main">
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                    <div class="circle"></div>
+                  </div>
+                </div> -->
+                    <!-- <h5 class="header col s12 light">Back-End</h5> -->
+                    <h5 class="textShadow">
+                        Aprendizaje
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <div class="diagonal-dev-right-to-left-top">
+            </div>
+            <img alt="Unsplashed background img 3" src="{{imagenDos}}">
+                <div class="diagonal-dev-left-to-right-bottom">
+                </div>
+            </img>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <!-- vista para pantallas medias y largas -->
+                <!-- <div class="col s12 center hide-on-small-only"> -->
+                <div class="col s12 center">
+                    <h3>
+                        <i class="mdi-content-send brown-text">
+                        </i>
+                    </h3>
+                    <div class="row center">
+                        <div class="col s12 m3 l3" ng-repeat="empresa in empresas">
+                            <div class="card contenedor-empresa" data-class="contenedor-empresa">
+                                <div class="card-image" style="background: {{empresa.color}}">
+                                    <img src="{{empresa.urlImagen}}">
+                                        <!-- <span class="card-title" style="color: {{empresa.colorText}}">{{empresa.titulo}}</span> -->
+                                    </img>
+                                </div>
+                                <div class="card-content">
+                                    <p>
+                                        {{empresa.descripcion | limitTo:90}}...
+                                    </p>
+                                </div>
+                                <div class="card-action" style="background-color: {{empresa.colorText}}">
+                                    <a data-target="modal-{{empresa.nombreToSelector}}" style="color: #fff">
+                                        Quiero saber mas...
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- vista para pantallas pequeñas -->
+                <!-- <div class="col s12 center hide-on-med-and-up">
+                <div class="carousel" id="languagesFrontXs">
+                </div>
+            </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- ESTUDIOS -->
+    <div class="parallax-container valign-wrapper section-front" style="min-height: 415px;">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="textShadow">
+                        Estudios
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <div class="diagonal-dev-left-to-right-top">
+            </div>
+            <!-- <img src="img/background1.jpg" alt="Unsplashed background img 3"> -->
+            <img alt="Unsplashed background img 2" src="{{imagenTres}}">
+                <div class="diagonal-dev-right-to-left-bottom">
+                </div>
+            </img>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <!-- vista para pantallas medianas y largas -->
+                <div class="col s12 center">
+                    <div class="row center">
+                        <div class="col s12 m4 l4 offset-m4 offset-l4" ng-repeat="estudio in estudios">
+                            <div class="card contenedor-estudio" data-class="contenedor-estudio">
+                                <div class="card-image" style="background: {{estudio.color}}">
+                                    <img src="{{estudio.urlImagen}}">
+                                        <!-- <span class="card-title" style="color: {{estudio.colorText}}">{{estudio.titulo}}</span> -->
+                                    </img>
+                                </div>
+                                <div class="card-content">
+                                    <p>
+                                        {{estudio.descripcion | limitTo:90}}...
+                                    </p>
+                                </div>
+                                <div class="card-action" style="background-color: {{estudio.colorText}}">
+                                    <a data-target="modal-{{estudio.nombreToSelector}}" style="color: #fff">
+                                        Quiero saber mas...
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div ng-include src="'includes/footer.html'"></div>
+    <!-- MODALES -->
+    <div class="modales" id="ModalesEmpresas">
+    </div>
+    <div class="modales" id="ModalesEstudios">
+    </div>
+    <!-- MODALES -->
+</div>

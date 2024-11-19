@@ -1,0 +1,73 @@
+<footer class="page-footer animated">
+	<div ng-if="mostrarContacto">
+		<div class="container">
+		    <div class="row">
+		        <div class="col l12 s12 formlarioContacto animated">
+		            <h4 class="blue-nice text-center">
+		                Contacto
+		            </h4>
+		        </div>
+		    </div>
+		</div>
+		<div class="row">
+		    <form class="col s12" name="correoForm">
+		        <div class="row">
+		            <div class="input-field col m6 s12">
+		                <input class="validate" id="icon_prefix" ng-model="dataFormulario.Nombre" required="" type="text">
+		                    <label for="icon_prefix">
+		                        Nombre
+		                    </label>
+		                </input>
+		            </div>
+		            <div class="input-field col m6 s12">
+		                <input class="validate" id="icon_prefix" ng-model="dataFormulario.Correo" required="" type="email">
+		                    <label for="icon_prefix">
+		                        Correo
+		                    </label>
+		                </input>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="input-field col s12">
+		                <textarea class="materialize-textarea" ng-model="dataFormulario.Mensaje" required="">
+		                </textarea>
+		                <label for="message">
+		                    Mensaje
+		                </label>
+		            </div>
+		        </div>
+		        <div class="row">
+		            <div class="col m12">
+		                <p class="left-align">
+		                    <!--  <button class="btn btn-large waves-effect waves-light cyan darken-1" name="action" type="button" ng-click="enviarCorreo()">
+		                                            Enviar
+		                                        </button> -->
+		                    <button class="btn waves-effect waves-light cyan darken-1 estiloBtnCorreo" name="action" ng-click="enviarCorreo()" type="button">
+		                        <i class="material-icons left">
+		                            send
+		                        </i>
+		                    </button>
+		                </p>
+		            </div>
+		        </div>
+		    </form>
+		</div>
+		<div class="col l12 s12 agradecimiento animated bounceIn" style="display: none">
+		    <h4 class="white-nice text-center">
+		        ¡Muchas gracias por contactarse conmigo!
+		    </h4>
+		    <h5 class="white-nice text-center">
+		        Muy pronto estaremos en contacto
+		    </h5>
+		</div>
+	</div>
+
+	<div class="footer-copyright">
+	    <div class="container">
+	        Hecho con
+	        <a class="blue-text text-lighten-3">
+	            AngularJs y Materialize
+	        </a>
+	    </div>
+	</div>
+</footer>

@@ -1,0 +1,205 @@
+<div ng-controller="inicioCtrl" ng-init="init()">
+    <!-- Cargando div -->
+    <div ng-include src="'includes/loader.html'"></div>
+    <!-- Cargando div -->
+    
+    <div id="content" layout="row">
+        <div flex="" flex-offset="100">
+            <div class="parallax-container" id="index-banner">
+                <div class="section no-pad-bot">
+                    <div class="container contene">
+                        <h3 class="header center light animated hide-on-small-only nombre-header textShadow">
+                            Romario Augusto Estrada Flórez
+                        </h3>
+                        <h5 class="header center light animated hide-on-med-and-up nombre-header textShadow">
+                            Romario Augusto Estrada Flórez
+                        </h5>
+                        <div class="row animated photo-header divImgPerfil">
+                            <div class="col s4 offset-s4 hide-on-small-only">
+                                <img id="romario" class="responsive-img circle materialboxed cursor-normal img-header" src="/public/landing/img/menu/img_perfil_2.png"/>
+                                <img id="alien" class="responsive-img circle materialboxed2 cursor-normal img-header" src="/public/landing/img/menu/romaef.png" style="display: none"/>
+                            </div>
+                            <div class="col s6 offset-s3 hide-on-med-and-up">
+                                <img class="responsive-img circle materialboxed2 cursor-normal img-header" src="/public/landing/img/menu/img_perfil_2.png"/>
+                            </div>
+                        </div>
+                        <div class="row center">
+                            <h5 class="header col s12 light animated bounceIn profesion-header textShadow" ng-click="fullstack()" style="cursor: pointer">
+                                Desarrollador Web Full Stack
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax">
+                    <img alt="Unsplashed background img 1" src="{{imagenUno}}"/>
+                </div>
+                <div class="absolute-action-btn menu-btn" ng-click="clickEnNavButton()">
+                    <i class="material-icons">
+                        menu
+                    </i>
+                </div>
+                <!-- redes sociales -->
+                <div ng-include src="'includes/redes_sociales.html'"></div>
+            </div>
+            <div class="container">
+                <div class="section" id="seccion1">
+                    <!--   Icon Section   -->
+                    <div class="row">
+                        <div class="col s12 m6">
+                            <div class="icon-block">
+                                <p class="center color-personalized-text icons_to_show">
+                                    <i class="material-icons pointer rayo animated">
+                                        flash_on
+                                    </i>
+                                </p>
+                                <h2 class="center h2_to_small">
+                                    Desarrollo eficiente
+                                </h2>
+                                <p class="light">
+                                    Ofrezco un desarrollo a la medida basado en los requirimientos de la idea que tienes para una web o una app.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col s12 m6">
+                            <div class="icon-block">
+                                <p class="center color-personalized-text icons_to_show">
+                                    <i class="material-icons pointer experiencia animated">
+                                        group
+                                    </i>
+                                </p>
+                                <h2 class="center h2_to_small">
+                                    Enfocado en la experiencia
+                                </h2>
+                                <p class="light">
+                                    Utilizando elementos y principios de diseño, con ayuda de componentes animados que proporciona retroalimentación a los usuarios.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax-container valign-wrapper" style="min-height: 415px;">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <!-- <h5 class="header col s12 light">Back-End</h5> -->
+                    <h5 class="textShadow">
+                        Desarrollo de funcionalidad
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <div class="diagonal-dev-right-to-left-top">
+            </div>
+            <img alt="Unsplashed background img 3" src="{{imagenDos}}">
+                <div class="diagonal-dev-left-to-right-bottom">
+                </div/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <!-- vista para pantallas medias y largas -->
+                <div class="col s12 center hide-on-small-only">
+                    <h3>
+                        <i class="mdi-content-send brown-text">
+                        </i>
+                    </h3>
+                    <div class="row center" id="languagesFrontLg">
+                    </div>
+                </div>
+                <!-- vista para pantallas pequeñas -->
+                <div class="col s12 center hide-on-med-and-up">
+                    <div class="carousel" id="languagesFrontXs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="parallax-container valign-wrapper section-front" style="min-height: 415px;">
+        <div class="section no-pad-bot">
+            <div class="container">
+                <div class="row center">
+                    <h5 class="textShadow">
+                        Desarrollo de servicios
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="parallax">
+            <div class="diagonal-dev-left-to-right-top">
+            </div>
+            <!-- <img src="img/background1.jpg" alt="Unsplashed background img 3"> -->
+            <img alt="Unsplashed background img 2" src="{{imagenTres}}">
+                <div class="diagonal-dev-right-to-left-bottom">
+                </div/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <!-- vista para pantallas medianas y largas -->
+                <div class="col s12 m8 offset-m2 center hide-on-small-only">
+                    <div class="row center" id="languagesBackLg">
+                    </div>
+                </div>
+                <!-- vista para pantallas pequeñas -->
+                <div class="col s12 center hide-on-med-and-up">
+                    <div class="carousel" id="languagesBackXs">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div ng-include src="'includes/footer.html'"></div>
+    <!-- <div ng-include="includes/footer.html"></div> -->
+    <!-- menu fijo -->
+    <!-- <div class="fixed-action-btn vertical click-to-toggle">
+        <a class="btn-floating btn-large blue lighten-1">
+            <i class="material-icons">
+                menu
+            </i>
+        </a>
+        <ul>
+            <li>
+                <a class="btn-floating red">
+                    <i class="material-icons">
+                        insert_chart
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating yellow darken-1">
+                    <i class="material-icons">
+                        format_quote
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating green">
+                    <i class="material-icons">
+                        publish
+                    </i>
+                </a>
+            </li>
+            <li>
+                <a data-position="left" data-delay="50" data-tooltip="Hoja de vida" class="btn-floating green lighten-1 waves-effect waves-yellow tooltipped" download="" href="/public/Hoja_de_vida_Romario_Augusto_Estrada_Florez.pdf">
+                    <i class="material-icons">
+                        archive
+                    </i>
+                </a>
+            </li>
+        </ul>
+    </div> -->
+    
+    <!-- MODALES -->
+    <div class="modales" id="ModalesFront">
+    </div>
+    <div class="modales" id="ModalesBack">
+    </div>
+    <!-- MODALES -->
+</div>

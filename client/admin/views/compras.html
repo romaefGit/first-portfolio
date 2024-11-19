@@ -1,0 +1,85 @@
+<div ng-controller="comprasAdmCtrl" ng-init="init()">
+    <div class="wrapper ">
+        <div ng-include src="'/includes_admin/sidebar.html'"></div>
+        
+        <div class="main-panel">
+            <div ng-include src="'/includes_admin/navbar.html'"></div>
+            
+            <div class="content">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-warning">
+                                    <h4 class="card-title">
+                                        Agregar Compra
+                                    </h4>
+                                    <p class="card-category">
+                                        Llene los campos requeridos
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                    	<div class="row">
+                                        	<div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repeatSelect"> Provedores </label>
+                                                    <select class="form-control" id="provedor" name="provedor" ng-model="nuevaCompra.provedor.id" >
+                                                        <option ng-repeat="opcion in provedores" ng-value="{{opcion.id}}" ng-click="escogido(opcion)">{{opcion.nombre}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        N° de factura
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevaCompra.numero" id="numero" name="numero" type="number"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Fecha de expedición
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevaCompra.fecha_expedicion" id="fecha_expedicion" name="fecha_expedicion" type="date"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Fecha de vencimiento
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevaCompra.fecha_vencimiento" id="fecha_vencimiento" name="fecha_vencimiento" type="date"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Valor $ {{nuevaCompra.valor}}
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevaCompra.valor" id="valor" name="valor" type="number"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-warning pull-right" ng-click="guardarCompra(nuevaCompra)">
+                                            Agregar
+                                        </button>
+                                        <div class="clearfix">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

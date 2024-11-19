@@ -1,0 +1,1621 @@
+<html lang="es" ng-app="romaef" class="ng-scope">
+  <head>
+    <style type="text/css">
+      @charset "UTF-8";
+      [ng\:cloak],
+      [ng-cloak],
+      [data-ng-cloak],
+      [x-ng-cloak],
+      .ng-cloak,
+      .x-ng-cloak,
+      .ng-hide:not(.ng-hide-animate) {
+        display: none !important;
+      }
+      ng\:form {
+        display: block;
+      }
+      .ng-animate-shim {
+        visibility: hidden;
+      }
+      .ng-anchor {
+        position: absolute;
+      }
+    </style>
+    <title>ROMAEF | Web Developer</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+      name="viewport"
+    />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <!-- redes sociales -->
+    <meta property="fb:app_id" content="309396412988609" />
+    <meta property="og:title" content="Inicio | romaef" />
+    <meta property="og:url" content="http://www.romaef.com/#!/inicio" />
+    <meta
+      property="og:image"
+      content="http://www.romaef.com/img/meta_tags/inicio.png"
+    />
+    <meta property="og:type" content="image.gallery" />
+    <meta
+      property="og:description"
+      content="Ofrezco un desarrollo a la medida basado en los requirimientos de la idea que tienes para una web o una app."
+    />
+    <!-- redes sociales -->
+
+    <!-- Fonts and icons -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css"
+    />
+    <!-- Material Dashboard CSS -->
+    <!-- CSS  -->
+    <link href="public/landing/materialicons.css" rel="stylesheet" />
+    <link
+      href="public/landing/materialize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="public/landing/css-site/style.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="public/landing/css-site/sidenav_roma.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="public/landing/animate.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      rel="stylesheet"
+      href="modulos/angular-material/angular-material.min.css"
+    />
+    <link
+      class="css-a-remover"
+      href="public/landing/css-site/inicio.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body ng-controller="globalCtrl" class="ng-scope loaded">
+    <!-- sidenav -->
+    <!-- ngInclude: -->
+    <div ng-include="" src="'includes/sidenav_roma.html'" class="ng-scope">
+      <!-- sideNav -->
+      <div class="sidenav-roma ng-scope" style="display: none">
+        <ul>
+          <div
+            class="close-nav absolute-action-btn menu-btn"
+            ng-click="closeNav()"
+          >
+            <i class="material-icons"> close </i>
+          </div>
+          <li ng-click="inicio()">
+            <a>
+              <p>Inicio</p>
+            </a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li ng-click="hojaDeVida()">
+            <a>
+              <p>Hoja de vida</p>
+            </a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li ng-click="fullstack()">
+            <a>
+              <p>¿Full stack?</p>
+            </a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <li ng-click="goToContact()">
+            <a>
+              <p>Contacto</p>
+            </a>
+          </li>
+          <li>
+            <div class="divider"></div>
+          </li>
+          <a href="https://gist.github.com/RomarioEstrada" target="_blank"> </a>
+          <li>
+            <a href="https://gist.github.com/RomarioEstrada" target="_blank">
+              <img
+                alt=""
+                class="img img-responsive"
+                src="/public/landing/img/icons/git_hub.png"
+            /></a>
+            <!-- <p>
+                Mira mis funciones en GIThub
+            </p> -->
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- sidenav -->
+
+    <!-- las vistas -->
+    <!-- ngView: -->
+    <div ng-view="" class="ng-scope">
+      <div ng-controller="inicioCtrl" ng-init="init()" class="ng-scope">
+        <!-- Cargando div -->
+        <!-- ngInclude: -->
+        <div ng-include="" src="'includes/loader.html'" class="ng-scope"></div>
+        <!-- Cargando div -->
+
+        <div id="content" layout="row">
+          <div flex="" flex-offset="100">
+            <div class="parallax-container" id="index-banner">
+              <div class="section no-pad-bot">
+                <div class="container contene">
+                  <h3
+                    class="header center light animated hide-on-small-only nombre-header textShadow bounceInDown"
+                  >
+                    Romario Augusto Estrada Flórez
+                  </h3>
+                  <h5
+                    class="header center light animated hide-on-med-and-up nombre-header textShadow bounceInDown"
+                  >
+                    Romario Augusto Estrada Flórez
+                  </h5>
+                  <div class="row animated photo-header divImgPerfil bounceIn">
+                    <div class="col s4 offset-s4 hide-on-small-only">
+                      <img
+                        id="romario"
+                        class="responsive-img circle materialboxed cursor-normal img-header"
+                        src="/public/landing/img/menu/img_perfil_2.png"
+                        style="display: block"
+                      />
+                      <img
+                        id="alien"
+                        class="responsive-img circle materialboxed2 cursor-normal img-header"
+                        src="/public/landing/img/menu/romaef.png"
+                        style="display: none"
+                      />
+                    </div>
+                    <div class="col s6 offset-s3 hide-on-med-and-up">
+                      <img
+                        class="responsive-img circle materialboxed2 cursor-normal img-header"
+                        src="/public/landing/img/menu/img_perfil_2.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="row center">
+                    <h5
+                      class="header col s12 light animated bounceIn profesion-header textShadow bounceInUp"
+                      ng-click="fullstack()"
+                      style="cursor: pointer"
+                    >
+                      Desarrollador Web Full Stack
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="parallax">
+                <img
+                  alt="Unsplashed background img 1"
+                  src="public/landing/img/elegidas/lg/1.png"
+                  style="
+                    display: block;
+                    transform: translate3d(-50%, 300px, 0px);
+                  "
+                />
+              </div>
+              <div
+                class="absolute-action-btn menu-btn"
+                ng-click="clickEnNavButton()"
+              >
+                <i class="material-icons"> menu </i>
+              </div>
+              <!-- redes sociales -->
+              <!-- ngInclude: -->
+              <div
+                ng-include=""
+                src="'includes/redes_sociales.html'"
+                class="ng-scope"
+              >
+                <div
+                  class="absolute-bottom-action-btn menu-btn ng-scope"
+                  style="width: 100%"
+                >
+                  <div class="row center">
+                    <div class="col s12 m6 l4 offset-m3 offset-l4">
+                      <div class="col s12 offset-s1">
+                        <div class="col s2 logo-container">
+                          <a
+                            href="https://www.instagram.com/romaef_/"
+                            target="_blank"
+                          >
+                            <img
+                              class="img img-logos"
+                              src="/public/landing/img/icons/instagram.png"
+                            />
+                          </a>
+                        </div>
+                        <div class="col s2 logo-container">
+                          <a
+                            href="https://twitter.com/romaestradaflo"
+                            target="_blank"
+                          >
+                            <img
+                              class="img img-logos"
+                              src="/public/landing/img/icons/twit.png"
+                            />
+                          </a>
+                        </div>
+                        <div class="col s2 logo-container">
+                          <a
+                            href="https://www.facebook.com/romaef/"
+                            target="_blank"
+                          >
+                            <img
+                              class="img img-logos"
+                              src="/public/landing/img/icons/facebook.png"
+                            />
+                          </a>
+                        </div>
+                        <div class="col s2 logo-container">
+                          <a
+                            href="https://gist.github.com/RomarioEstrada"
+                            target="_blank"
+                          >
+                            <img
+                              class="img img-logos"
+                              src="/public/landing/img/icons/git_hub.png"
+                            />
+                          </a>
+                        </div>
+                        <div class="col s2 logo-container">
+                          <a
+                            href="https://www.linkedin.com/in/romario-augusto-estrada-fl%C3%B3rez-18b66a159"
+                            target="_blank"
+                          >
+                            <img
+                              class="img img-logos"
+                              src="/public/landing/img/icons/linkedin.png"
+                            />
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- <div class="btnssocial">
+<a class="waves-effect waves-light btn-floating social vimeo">
+<i class="fa fa-vimeo"></i> mi instagrama</a>
+</div> -->
+              </div>
+            </div>
+            <div class="container">
+              <div class="section" id="seccion1">
+                <!--   Icon Section   -->
+                <div class="row">
+                  <div class="col s12 m6">
+                    <div class="icon-block">
+                      <p class="center color-personalized-text icons_to_show">
+                        <i class="material-icons pointer rayo"> flash_on </i>
+                      </p>
+                      <h2 class="center h2_to_small">Desarrollo eficiente</h2>
+                      <p class="light">
+                        Ofrezco un desarrollo a la medida basado en los
+                        requirimientos de la idea que tienes para una web o una
+                        app.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col s12 m6">
+                    <div class="icon-block">
+                      <p class="center color-personalized-text icons_to_show">
+                        <i class="material-icons pointer experiencia">
+                          group
+                        </i>
+                      </p>
+                      <h2 class="center h2_to_small">
+                        Enfocado en la experiencia
+                      </h2>
+                      <p class="light">
+                        Utilizando elementos y principios de diseño, con ayuda
+                        de componentes animados que proporciona
+                        retroalimentación a los usuarios.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="parallax-container valign-wrapper"
+          style="min-height: 415px"
+        >
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center">
+                <!-- <h5 class="header col s12 light">Back-End</h5> -->
+                <h5 class="textShadow">Desarrollo de funcionalidad</h5>
+              </div>
+            </div>
+          </div>
+          <div class="parallax">
+            <div class="diagonal-dev-right-to-left-top"></div>
+            <img
+              alt="Unsplashed background img 3"
+              src="public/landing/img/elegidas/lg/2.png"
+              style="display: block; transform: translate3d(-50%, 114px, 0px)"
+            />
+            <div class="diagonal-dev-left-to-right-bottom"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <!-- vista para pantallas medias y largas -->
+              <div class="col s12 center hide-on-small-only">
+                <h3>
+                  <i class="mdi-content-send brown-text"> </i>
+                </h3>
+                <div class="row center" id="languagesFrontLg">
+                  <div class="col s12 m2" data-target="modal-JavaScript">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/javascript.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m2" data-target="modal-Angular">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/angular.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m2" data-target="modal-jQuery">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/jquery.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m2" data-target="modal-Bootstrap">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/bootstrap.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m2" data-target="modal-Ionic">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/ionic.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m2" data-target="modal-Materialize">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/materialize.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- vista para pantallas pequeñas -->
+              <div class="col s12 center hide-on-med-and-up">
+                <div class="carousel initialized" id="languagesFrontXs">
+                  <a
+                    class="carousel-item cursorCorusel active"
+                    data-target="modal-JavaScript"
+                    style="
+                      z-index: 0;
+                      opacity: 1;
+                      display: block;
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(0px) translateX(0px) translateZ(0px);
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/javascript.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-Angular"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(200px) translateZ(-200px);
+                      z-index: -1;
+                      opacity: 0.6;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/angular.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-jQuery"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(400px) translateZ(-400px);
+                      z-index: -2;
+                      opacity: 0.2;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/jquery.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-Bootstrap"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(-600px) translateZ(-600px);
+                      z-index: -3;
+                      opacity: -0.2;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/bootstrap.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-Ionic"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(-400px) translateZ(-400px);
+                      z-index: -2;
+                      opacity: 0.2;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/ionic.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-Materialize"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(-200px) translateZ(-200px);
+                      z-index: -1;
+                      opacity: 0.6;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/materialize.png"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="parallax-container valign-wrapper section-front"
+          style="min-height: 415px"
+        >
+          <div class="section no-pad-bot">
+            <div class="container">
+              <div class="row center">
+                <h5 class="textShadow">Desarrollo de servicios</h5>
+              </div>
+            </div>
+          </div>
+          <div class="parallax">
+            <div class="diagonal-dev-left-to-right-top"></div>
+            <!-- <img src="img/background1.jpg" alt="Unsplashed background img 3"> -->
+            <img
+              alt="Unsplashed background img 2"
+              src="public/landing/img/elegidas/lg/3.png"
+              style="display: block; transform: translate3d(-50%, 40px, 0px)"
+            />
+            <div class="diagonal-dev-right-to-left-bottom"></div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section">
+            <div class="row">
+              <!-- vista para pantallas medianas y largas -->
+              <div class="col s12 m8 offset-m2 center hide-on-small-only">
+                <div class="row center" id="languagesBackLg">
+                  <div class="col s12 m3" data-target="modal-Cordova">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/cordova.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m3" data-target="modal-NodeJs">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/nodejs.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m3" data-target="modal-MongoDB">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/mongodb.png"
+                      />
+                    </div>
+                  </div>
+                  <div class="col s12 m3" data-target="modal-Git">
+                    <div class="cotenedor-lenguaje-img">
+                      <img
+                        class="responsive-img img-size-equal"
+                        src="public/landing/img/lenguajes/git.png"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- vista para pantallas pequeñas -->
+              <div class="col s12 center hide-on-med-and-up">
+                <div class="carousel initialized" id="languagesBackXs">
+                  <a
+                    class="carousel-item cursorCorusel active"
+                    data-target="modal-Cordova"
+                    style="
+                      z-index: 0;
+                      opacity: 1;
+                      display: block;
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(0px) translateX(0px) translateZ(0px);
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/cordova.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-NodeJs"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(200px) translateZ(-200px);
+                      z-index: -1;
+                      opacity: 0.6;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/nodejs.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-MongoDB"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(-400px) translateZ(-400px);
+                      z-index: -2;
+                      opacity: 0.2;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/mongodb.png" /></a
+                  ><a
+                    class="carousel-item cursorCorusel"
+                    data-target="modal-Git"
+                    style="
+                      transform: translateX(-100px) translateY(-200px)
+                        translateX(-200px) translateZ(-200px);
+                      z-index: -1;
+                      opacity: 0.6;
+                      display: block;
+                    "
+                    ><img
+                      class="responsive-img img-size-equal"
+                      src="public/landing/img/lenguajes/git.png"
+                  /></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer -->
+        <!-- ngInclude: -->
+        <div ng-include="" src="'includes/footer.html'" class="ng-scope">
+          <footer class="page-footer animated ng-scope">
+            <!-- ngIf: mostrarContacto -->
+            <div ng-if="mostrarContacto" class="ng-scope">
+              <div class="container">
+                <div class="row">
+                  <div class="col l12 s12 formlarioContacto animated">
+                    <h4 class="blue-nice text-center">Contacto</h4>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <form
+                  class="col s12 ng-pristine ng-invalid ng-invalid-required ng-valid-email"
+                  name="correoForm"
+                >
+                  <div class="row">
+                    <div class="input-field col m6 s12">
+                      <input
+                        class="validate ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                        id="icon_prefix"
+                        ng-model="dataFormulario.Nombre"
+                        required=""
+                        type="text"
+                      />
+                      <label for="icon_prefix"> Nombre </label>
+                    </div>
+                    <div class="input-field col m6 s12">
+                      <input
+                        class="validate ng-pristine ng-untouched ng-empty ng-valid-email ng-invalid ng-invalid-required"
+                        id="icon_prefix"
+                        ng-model="dataFormulario.Correo"
+                        required=""
+                        type="email"
+                      />
+                      <label for="icon_prefix"> Correo </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <textarea
+                        class="materialize-textarea ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required"
+                        ng-model="dataFormulario.Mensaje"
+                        required=""
+                      >
+                      </textarea>
+                      <label for="message"> Mensaje </label>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col m12">
+                      <p class="left-align">
+                        <!--  <button class="btn btn-large waves-effect waves-light cyan darken-1" name="action" type="button" ng-click="enviarCorreo()">
+                                            Enviar
+                                        </button> -->
+                        <button
+                          class="btn waves-effect waves-light cyan darken-1 estiloBtnCorreo"
+                          name="action"
+                          ng-click="enviarCorreo()"
+                          type="button"
+                        >
+                          <i class="material-icons left"> send </i>
+                        </button>
+                      </p>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="col l12 s12 agradecimiento animated bounceIn"
+                style="display: none"
+              >
+                <h4 class="white-nice text-center">
+                  ¡Muchas gracias por contactarse conmigo!
+                </h4>
+                <h5 class="white-nice text-center">
+                  Muy pronto estaremos en contacto
+                </h5>
+              </div>
+            </div>
+            <!-- end ngIf: mostrarContacto -->
+
+            <div class="footer-copyright">
+              <div class="container">
+                Hecho con
+                <a class="blue-text text-lighten-3">
+                  AngularJs y Materialize
+                </a>
+              </div>
+            </div>
+          </footer>
+        </div>
+        <!-- <div ng-include="includes/footer.html"></div> -->
+        <!-- menu fijo -->
+        <!-- <div class="fixed-action-btn vertical click-to-toggle">
+    <a class="btn-floating btn-large blue lighten-1">
+        <i class="material-icons">
+            menu
+        </i>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating red">
+                <i class="material-icons">
+                    insert_chart
+                </i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating yellow darken-1">
+                <i class="material-icons">
+                    format_quote
+                </i>
+            </a>
+        </li>
+        <li>
+            <a class="btn-floating green">
+                <i class="material-icons">
+                    publish
+                </i>
+            </a>
+        </li>
+        <li>
+            <a data-position="left" data-delay="50" data-tooltip="Hoja de vida" class="btn-floating green lighten-1 waves-effect waves-yellow tooltipped" download="" href="/public/Hoja_de_vida_Romario_Augusto_Estrada_Florez.pdf">
+                <i class="material-icons">
+                    archive
+                </i>
+            </a>
+        </li>
+    </ul>
+</div> -->
+
+        <!-- MODALES -->
+        <div class="modales" id="ModalesFront">
+          <div
+            class="modal bottom-sheet"
+            id="modal-JavaScript"
+            style="border-top: 6px solid #d5b830"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/javascript.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #d5b830">JavaScript</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Aunque empecé a conocerlo con jquery, el lenguaje puro de
+                    este lo fui conociendo de a poco, ya hace 3 años que lo uso
+                    y he podido generar componentes desde cero sin usar alguna
+                    otra librería.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #d5b830; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-JavaScript" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(213, 184, 48)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(253, 253, 253)"
+                        >
+                          90%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-JavaScript"
+                            transform="translate(-85,26.712499618530273)"
+                          >
+                            <path
+                              d="M0,91.575L2.25,91.575L4.5,91.575L6.75,91.575L9,91.575L11.25,91.575L13.5,91.575L15.749999999999998,91.575L18,91.575L20.25,91.575L22.5,91.575L24.750000000000004,91.575L27,91.575L29.25,91.575L31.499999999999996,91.575L33.75,91.575L36,91.575L38.25,91.575L40.5,91.575L42.75,91.575L45,91.575L47.25,91.575L49.50000000000001,91.575L51.74999999999999,91.575L54,91.575L56.25,91.575L58.5,91.575L60.75000000000001,91.575L62.99999999999999,91.575L65.25,91.575L67.5,91.575L69.75,91.575L72,91.575L74.25,91.575L76.5,91.575L78.75,91.575L81,91.575L83.25,91.575L85.5,91.575L87.75,91.575L90,91.575L92.24999999999999,91.575L94.5,91.575L96.75,91.575L99.00000000000001,91.575L101.25,91.575L103.49999999999999,91.575L105.75,91.575L108,91.575L110.25000000000001,91.575L112.5,91.575L114.74999999999999,91.575L117,91.575L119.25,91.575L121.50000000000001,91.575L123.75,91.575L125.99999999999999,91.575L128.25,91.575L130.5,91.575L132.75,91.575L135,91.575L137.25,91.575L139.5,91.575L141.75,91.575L144,91.575L146.25,91.575L148.5,91.575L150.75,91.575L153,91.575L155.25,91.575L157.5,91.575L159.75,91.575L162,91.575L164.25,91.575L166.5,91.575L168.75,91.575L171,91.575L173.25,91.575L175.5,91.575L177.75,91.575L180,91.575L180,-7.715274834628326e-16L177.75,-0.24638428243836302L175.5,-0.486701766140543L173.25,-0.7150350370897857L171,-0.9257617723606458L168.75,-1.113693180368814L166.5,-1.2742017661405427L164.25,-1.4033352755966804L162,-1.4979140131648674L159.75,-1.5556091364373423L157.5,-1.5750000000000002L155.25,-1.555609136437342L153,-1.4979140131648667L150.75,-1.40333527559668L148.5,-1.274201766140542L146.25,-1.113693180368813L144,-0.9257617723606447L141.75,-0.7150350370897844L139.5,-0.48670176614054167L137.25,-0.2463842824383617L135,5.786456125971244e-16L132.75,0.24638428243836283L130.5,0.48670176614054284L128.25,0.7150350370897856L125.99999999999999,0.9257617723606456L123.75,1.1136931803688137L121.50000000000001,1.2742017661405427L119.25,1.4033352755966804L117,1.4979140131648672L114.74999999999999,1.5556091364373423L112.5,1.5750000000000002L110.25000000000001,1.555609136437342L108,1.497914013164867L105.75,1.4033352755966793L103.49999999999999,1.2742017661405414L101.25,1.1136931803688122L99.00000000000001,0.9257617723606459L96.75,0.715035037089786L94.5,0.48670176614054184L92.24999999999999,0.24638428243836186L90,-3.857637417314163e-16L87.75,-0.24638428243836405L85.5,-0.4867017661405426L83.25,-0.7150350370897866L81,-0.9257617723606456L78.75,-1.1136931803688128L76.5,-1.2742017661405425L74.25,-1.4033352755966797L72,-1.4979140131648672L69.75,-1.555609136437342L67.5,-1.5750000000000002L65.25,-1.5556091364373419L62.99999999999999,-1.497914013164867L60.75000000000001,-1.4033352755966795L58.5,-1.2742017661405423L56.25,-1.1136931803688124L54,-0.9257617723606452L51.74999999999999,-0.7150350370897854L49.50000000000001,-0.4867017661405427L47.25,-0.24638428243836344L45,1.9288187086570816e-16L42.75,0.24638428243836383L40.5,0.4867017661405424L38.25,0.7150350370897864L36,0.9257617723606455L33.75,1.1136931803688126L31.499999999999996,1.2742017661405425L29.25,1.4033352755966797L27,1.4979140131648672L24.750000000000004,1.5556091364373419L22.5,1.5750000000000002L20.25,1.555609136437342L18,1.497914013164867L15.749999999999998,1.4033352755966795L13.5,1.2742017661405425L11.25,1.1136931803688124L9,0.9257617723606453L6.75,0.7150350370897862L4.5,0.4867017661405422L2.25,0.24638428243836363L0,0Z"
+                              T="0.2"
+                              transform="translate(18,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-JavaScript)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(254, 218, 62)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(253, 253, 253)"
+                          >
+                            90%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-Angular"
+            style="border-top: 6px solid #b62f32"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/angular_modal.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #b62f32">Angular 1</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    He manejado este lenguaje ya hace más de dos años, tengo un
+                    amplio conocimiento en la primer version de este lenguaje,
+                    le he implementado varios componentes que dan agilidad a la
+                    hora de desarrollar y cumplir los flujos que se requieran.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #b62f32; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Angular" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(182, 47, 50)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(245, 246, 247)"
+                        >
+                          90%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Angular"
+                            transform="translate(-85,26.712499618530273)"
+                          >
+                            <path
+                              d="M0,91.575L2.25,91.575L4.5,91.575L6.75,91.575L9,91.575L11.25,91.575L13.5,91.575L15.749999999999998,91.575L18,91.575L20.25,91.575L22.5,91.575L24.750000000000004,91.575L27,91.575L29.25,91.575L31.499999999999996,91.575L33.75,91.575L36,91.575L38.25,91.575L40.5,91.575L42.75,91.575L45,91.575L47.25,91.575L49.50000000000001,91.575L51.74999999999999,91.575L54,91.575L56.25,91.575L58.5,91.575L60.75000000000001,91.575L62.99999999999999,91.575L65.25,91.575L67.5,91.575L69.75,91.575L72,91.575L74.25,91.575L76.5,91.575L78.75,91.575L81,91.575L83.25,91.575L85.5,91.575L87.75,91.575L90,91.575L92.24999999999999,91.575L94.5,91.575L96.75,91.575L99.00000000000001,91.575L101.25,91.575L103.49999999999999,91.575L105.75,91.575L108,91.575L110.25000000000001,91.575L112.5,91.575L114.74999999999999,91.575L117,91.575L119.25,91.575L121.50000000000001,91.575L123.75,91.575L125.99999999999999,91.575L128.25,91.575L130.5,91.575L132.75,91.575L135,91.575L137.25,91.575L139.5,91.575L141.75,91.575L144,91.575L146.25,91.575L148.5,91.575L150.75,91.575L153,91.575L155.25,91.575L157.5,91.575L159.75,91.575L162,91.575L164.25,91.575L166.5,91.575L168.75,91.575L171,91.575L173.25,91.575L175.5,91.575L177.75,91.575L180,91.575L180,-7.715274834628326e-16L177.75,-0.24638428243836302L175.5,-0.486701766140543L173.25,-0.7150350370897857L171,-0.9257617723606458L168.75,-1.113693180368814L166.5,-1.2742017661405427L164.25,-1.4033352755966804L162,-1.4979140131648674L159.75,-1.5556091364373423L157.5,-1.5750000000000002L155.25,-1.555609136437342L153,-1.4979140131648667L150.75,-1.40333527559668L148.5,-1.274201766140542L146.25,-1.113693180368813L144,-0.9257617723606447L141.75,-0.7150350370897844L139.5,-0.48670176614054167L137.25,-0.2463842824383617L135,5.786456125971244e-16L132.75,0.24638428243836283L130.5,0.48670176614054284L128.25,0.7150350370897856L125.99999999999999,0.9257617723606456L123.75,1.1136931803688137L121.50000000000001,1.2742017661405427L119.25,1.4033352755966804L117,1.4979140131648672L114.74999999999999,1.5556091364373423L112.5,1.5750000000000002L110.25000000000001,1.555609136437342L108,1.497914013164867L105.75,1.4033352755966793L103.49999999999999,1.2742017661405414L101.25,1.1136931803688122L99.00000000000001,0.9257617723606459L96.75,0.715035037089786L94.5,0.48670176614054184L92.24999999999999,0.24638428243836186L90,-3.857637417314163e-16L87.75,-0.24638428243836405L85.5,-0.4867017661405426L83.25,-0.7150350370897866L81,-0.9257617723606456L78.75,-1.1136931803688128L76.5,-1.2742017661405425L74.25,-1.4033352755966797L72,-1.4979140131648672L69.75,-1.555609136437342L67.5,-1.5750000000000002L65.25,-1.5556091364373419L62.99999999999999,-1.497914013164867L60.75000000000001,-1.4033352755966795L58.5,-1.2742017661405423L56.25,-1.1136931803688124L54,-0.9257617723606452L51.74999999999999,-0.7150350370897854L49.50000000000001,-0.4867017661405427L47.25,-0.24638428243836344L45,1.9288187086570816e-16L42.75,0.24638428243836383L40.5,0.4867017661405424L38.25,0.7150350370897864L36,0.9257617723606455L33.75,1.1136931803688126L31.499999999999996,1.2742017661405425L29.25,1.4033352755966797L27,1.4979140131648672L24.750000000000004,1.5556091364373419L22.5,1.5750000000000002L20.25,1.555609136437342L18,1.497914013164867L15.749999999999998,1.4033352755966795L13.5,1.2742017661405425L11.25,1.1136931803688124L9,0.9257617723606453L6.75,0.7150350370897862L4.5,0.4867017661405422L2.25,0.24638428243836363L0,0Z"
+                              T="0.2"
+                              transform="translate(18,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Angular)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(228, 49, 55)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(245, 246, 247)"
+                          >
+                            90%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-jQuery"
+            style="border-top: 6px solid #172c45"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/jquery.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #172c45">jQuery</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Lo manejo hace ya 3 años y es usado para generar flujos de
+                    información entre html y JavaScript de una manera más
+                    eficiente que usando solo Javascript.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #172c45; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-jQuery" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(23, 44, 69)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          95%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-jQuery"
+                            transform="translate(-85,22.984375)"
+                          >
+                            <path
+                              d="M0,91.3125L2.25,91.3125L4.5,91.3125L6.75,91.3125L9,91.3125L11.25,91.3125L13.5,91.3125L15.749999999999998,91.3125L18,91.3125L20.25,91.3125L22.5,91.3125L24.750000000000004,91.3125L27,91.3125L29.25,91.3125L31.499999999999996,91.3125L33.75,91.3125L36,91.3125L38.25,91.3125L40.5,91.3125L42.75,91.3125L45,91.3125L47.25,91.3125L49.50000000000001,91.3125L51.74999999999999,91.3125L54,91.3125L56.25,91.3125L58.5,91.3125L60.75000000000001,91.3125L62.99999999999999,91.3125L65.25,91.3125L67.5,91.3125L69.75,91.3125L72,91.3125L74.25,91.3125L76.5,91.3125L78.75,91.3125L81,91.3125L83.25,91.3125L85.5,91.3125L87.75,91.3125L90,91.3125L92.24999999999999,91.3125L94.5,91.3125L96.75,91.3125L99.00000000000001,91.3125L101.25,91.3125L103.49999999999999,91.3125L105.75,91.3125L108,91.3125L110.25000000000001,91.3125L112.5,91.3125L114.74999999999999,91.3125L117,91.3125L119.25,91.3125L121.50000000000001,91.3125L123.75,91.3125L125.99999999999999,91.3125L128.25,91.3125L130.5,91.3125L132.75,91.3125L135,91.3125L137.25,91.3125L139.5,91.3125L141.75,91.3125L144,91.3125L146.25,91.3125L148.5,91.3125L150.75,91.3125L153,91.3125L155.25,91.3125L157.5,91.3125L159.75,91.3125L162,91.3125L164.25,91.3125L166.5,91.3125L168.75,91.3125L171,91.3125L173.25,91.3125L175.5,91.3125L177.75,91.3125L180,91.3125L180,-6.429395695523607e-16L177.75,-0.2053202353653026L175.5,-0.4055848051171193L173.25,-0.595862530908155L171,-0.7714681436338718L168.75,-0.9280776503073453L166.5,-1.0618348051171194L164.25,-1.169446062997234L162,-1.24826167763739L159.75,-1.2963409470311191L157.5,-1.3125000000000007L155.25,-1.296340947031119L153,-1.2482616776373896L150.75,-1.1694460629972339L148.5,-1.0618348051171187L146.25,-0.9280776503073446L144,-0.771468143633871L141.75,-0.595862530908154L139.5,-0.40558480511711825L137.25,-0.20532023536530147L135,4.822046771642705e-16L132.75,0.20532023536530242L130.5,0.4055848051171192L128.25,0.5958625309081548L125.99999999999999,0.7714681436338717L123.75,0.9280776503073451L121.50000000000001,1.0618348051171194L119.25,1.169446062997234L117,1.2482616776373898L114.74999999999999,1.2963409470311191L112.5,1.3125000000000007L110.25000000000001,1.296340947031119L108,1.2482616776373896L105.75,1.1694460629972332L103.49999999999999,1.0618348051171183L101.25,0.9280776503073439L99.00000000000001,0.771468143633872L96.75,0.5958625309081552L94.5,0.40558480511711836L92.24999999999999,0.20532023536530164L90,-3.2146978477618036e-16L87.75,-0.20532023536530344L85.5,-0.40558480511711903L83.25,-0.5958625309081557L81,-0.7714681436338717L78.75,-0.9280776503073443L76.5,-1.0618348051171191L74.25,-1.1694460629972334L72,-1.2482616776373898L69.75,-1.296340947031119L67.5,-1.3125000000000007L65.25,-1.296340947031119L62.99999999999999,-1.2482616776373896L60.75000000000001,-1.1694460629972334L58.5,-1.061834805117119L56.25,-0.928077650307344L54,-0.7714681436338713L51.74999999999999,-0.5958625309081548L49.50000000000001,-0.4055848051171191L47.25,-0.20532023536530294L45,1.6073489238809018e-16L42.75,0.20532023536530328L40.5,0.4055848051171188L38.25,0.5958625309081556L36,0.7714681436338715L33.75,0.9280776503073441L31.499999999999996,1.0618348051171191L29.25,1.1694460629972334L27,1.2482616776373898L24.750000000000004,1.296340947031119L22.5,1.3125000000000007L20.25,1.296340947031119L18,1.2482616776373896L15.749999999999998,1.1694460629972334L13.5,1.0618348051171191L11.25,0.928077650307344L9,0.7714681436338714L6.75,0.5958625309081554L4.5,0.40558480511711864L2.25,0.2053202353653031L0,0Z"
+                              T="0.2"
+                              transform="translate(18,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-jQuery)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(25, 53, 86)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            95%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-Bootstrap"
+            style="border-top: 6px solid #62488a"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/bootstrap.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #62488a">Bootstrap</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Con el me sumergí en el concepto responsivo de las paginas
+                    actuales, llevo usándolo ya hace 3 años y me desenvuelvo
+                    bien a la hora de desarrollar en este.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #62488a; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Bootstrap" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(98, 72, 138)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          90%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Bootstrap"
+                            transform="translate(-85,26.712499618530273)"
+                          >
+                            <path
+                              d="M0,91.575L2.25,91.575L4.5,91.575L6.75,91.575L9,91.575L11.25,91.575L13.5,91.575L15.749999999999998,91.575L18,91.575L20.25,91.575L22.5,91.575L24.750000000000004,91.575L27,91.575L29.25,91.575L31.499999999999996,91.575L33.75,91.575L36,91.575L38.25,91.575L40.5,91.575L42.75,91.575L45,91.575L47.25,91.575L49.50000000000001,91.575L51.74999999999999,91.575L54,91.575L56.25,91.575L58.5,91.575L60.75000000000001,91.575L62.99999999999999,91.575L65.25,91.575L67.5,91.575L69.75,91.575L72,91.575L74.25,91.575L76.5,91.575L78.75,91.575L81,91.575L83.25,91.575L85.5,91.575L87.75,91.575L90,91.575L92.24999999999999,91.575L94.5,91.575L96.75,91.575L99.00000000000001,91.575L101.25,91.575L103.49999999999999,91.575L105.75,91.575L108,91.575L110.25000000000001,91.575L112.5,91.575L114.74999999999999,91.575L117,91.575L119.25,91.575L121.50000000000001,91.575L123.75,91.575L125.99999999999999,91.575L128.25,91.575L130.5,91.575L132.75,91.575L135,91.575L137.25,91.575L139.5,91.575L141.75,91.575L144,91.575L146.25,91.575L148.5,91.575L150.75,91.575L153,91.575L155.25,91.575L157.5,91.575L159.75,91.575L162,91.575L164.25,91.575L166.5,91.575L168.75,91.575L171,91.575L173.25,91.575L175.5,91.575L177.75,91.575L180,91.575L180,-7.715274834628326e-16L177.75,-0.24638428243836302L175.5,-0.486701766140543L173.25,-0.7150350370897857L171,-0.9257617723606458L168.75,-1.113693180368814L166.5,-1.2742017661405427L164.25,-1.4033352755966804L162,-1.4979140131648674L159.75,-1.5556091364373423L157.5,-1.5750000000000002L155.25,-1.555609136437342L153,-1.4979140131648667L150.75,-1.40333527559668L148.5,-1.274201766140542L146.25,-1.113693180368813L144,-0.9257617723606447L141.75,-0.7150350370897844L139.5,-0.48670176614054167L137.25,-0.2463842824383617L135,5.786456125971244e-16L132.75,0.24638428243836283L130.5,0.48670176614054284L128.25,0.7150350370897856L125.99999999999999,0.9257617723606456L123.75,1.1136931803688137L121.50000000000001,1.2742017661405427L119.25,1.4033352755966804L117,1.4979140131648672L114.74999999999999,1.5556091364373423L112.5,1.5750000000000002L110.25000000000001,1.555609136437342L108,1.497914013164867L105.75,1.4033352755966793L103.49999999999999,1.2742017661405414L101.25,1.1136931803688122L99.00000000000001,0.9257617723606459L96.75,0.715035037089786L94.5,0.48670176614054184L92.24999999999999,0.24638428243836186L90,-3.857637417314163e-16L87.75,-0.24638428243836405L85.5,-0.4867017661405426L83.25,-0.7150350370897866L81,-0.9257617723606456L78.75,-1.1136931803688128L76.5,-1.2742017661405425L74.25,-1.4033352755966797L72,-1.4979140131648672L69.75,-1.555609136437342L67.5,-1.5750000000000002L65.25,-1.5556091364373419L62.99999999999999,-1.497914013164867L60.75000000000001,-1.4033352755966795L58.5,-1.2742017661405423L56.25,-1.1136931803688124L54,-0.9257617723606452L51.74999999999999,-0.7150350370897854L49.50000000000001,-0.4867017661405427L47.25,-0.24638428243836344L45,1.9288187086570816e-16L42.75,0.24638428243836383L40.5,0.4867017661405424L38.25,0.7150350370897864L36,0.9257617723606455L33.75,1.1136931803688126L31.499999999999996,1.2742017661405425L29.25,1.4033352755966797L27,1.4979140131648672L24.750000000000004,1.5556091364373419L22.5,1.5750000000000002L20.25,1.555609136437342L18,1.497914013164867L15.749999999999998,1.4033352755966795L13.5,1.2742017661405425L11.25,1.1136931803688124L9,0.9257617723606453L6.75,0.7150350370897862L4.5,0.4867017661405422L2.25,0.24638428243836363L0,0Z"
+                              T="0.1995"
+                              transform="translate(17.955000000000002,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Bootstrap)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(179, 156, 214)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            90%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-Ionic"
+            style="border-top: 6px solid #4e8ef7"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/ionic.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #4e8ef7">Ionic</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Desde que salio, llevo usando su primera version y el uso de
+                    este es muy sencillo de entender ya que se basa en angularJs
+                    v1, he desarrollado dos prototipos de aplicaciones en
+                    android y dos aplicaciones ya en las tiendas conocidas como
+                    AppStore y PlayStore.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #4e8ef7; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Ionic" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(78, 142, 247)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          95%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Ionic"
+                            transform="translate(-85,22.984375)"
+                          >
+                            <path
+                              d="M0,91.3125L2.25,91.3125L4.5,91.3125L6.75,91.3125L9,91.3125L11.25,91.3125L13.5,91.3125L15.749999999999998,91.3125L18,91.3125L20.25,91.3125L22.5,91.3125L24.750000000000004,91.3125L27,91.3125L29.25,91.3125L31.499999999999996,91.3125L33.75,91.3125L36,91.3125L38.25,91.3125L40.5,91.3125L42.75,91.3125L45,91.3125L47.25,91.3125L49.50000000000001,91.3125L51.74999999999999,91.3125L54,91.3125L56.25,91.3125L58.5,91.3125L60.75000000000001,91.3125L62.99999999999999,91.3125L65.25,91.3125L67.5,91.3125L69.75,91.3125L72,91.3125L74.25,91.3125L76.5,91.3125L78.75,91.3125L81,91.3125L83.25,91.3125L85.5,91.3125L87.75,91.3125L90,91.3125L92.24999999999999,91.3125L94.5,91.3125L96.75,91.3125L99.00000000000001,91.3125L101.25,91.3125L103.49999999999999,91.3125L105.75,91.3125L108,91.3125L110.25000000000001,91.3125L112.5,91.3125L114.74999999999999,91.3125L117,91.3125L119.25,91.3125L121.50000000000001,91.3125L123.75,91.3125L125.99999999999999,91.3125L128.25,91.3125L130.5,91.3125L132.75,91.3125L135,91.3125L137.25,91.3125L139.5,91.3125L141.75,91.3125L144,91.3125L146.25,91.3125L148.5,91.3125L150.75,91.3125L153,91.3125L155.25,91.3125L157.5,91.3125L159.75,91.3125L162,91.3125L164.25,91.3125L166.5,91.3125L168.75,91.3125L171,91.3125L173.25,91.3125L175.5,91.3125L177.75,91.3125L180,91.3125L180,-6.429395695523607e-16L177.75,-0.2053202353653026L175.5,-0.4055848051171193L173.25,-0.595862530908155L171,-0.7714681436338718L168.75,-0.9280776503073453L166.5,-1.0618348051171194L164.25,-1.169446062997234L162,-1.24826167763739L159.75,-1.2963409470311191L157.5,-1.3125000000000007L155.25,-1.296340947031119L153,-1.2482616776373896L150.75,-1.1694460629972339L148.5,-1.0618348051171187L146.25,-0.9280776503073446L144,-0.771468143633871L141.75,-0.595862530908154L139.5,-0.40558480511711825L137.25,-0.20532023536530147L135,4.822046771642705e-16L132.75,0.20532023536530242L130.5,0.4055848051171192L128.25,0.5958625309081548L125.99999999999999,0.7714681436338717L123.75,0.9280776503073451L121.50000000000001,1.0618348051171194L119.25,1.169446062997234L117,1.2482616776373898L114.74999999999999,1.2963409470311191L112.5,1.3125000000000007L110.25000000000001,1.296340947031119L108,1.2482616776373896L105.75,1.1694460629972332L103.49999999999999,1.0618348051171183L101.25,0.9280776503073439L99.00000000000001,0.771468143633872L96.75,0.5958625309081552L94.5,0.40558480511711836L92.24999999999999,0.20532023536530164L90,-3.2146978477618036e-16L87.75,-0.20532023536530344L85.5,-0.40558480511711903L83.25,-0.5958625309081557L81,-0.7714681436338717L78.75,-0.9280776503073443L76.5,-1.0618348051171191L74.25,-1.1694460629972334L72,-1.2482616776373898L69.75,-1.296340947031119L67.5,-1.3125000000000007L65.25,-1.296340947031119L62.99999999999999,-1.2482616776373896L60.75000000000001,-1.1694460629972334L58.5,-1.061834805117119L56.25,-0.928077650307344L54,-0.7714681436338713L51.74999999999999,-0.5958625309081548L49.50000000000001,-0.4055848051171191L47.25,-0.20532023536530294L45,1.6073489238809018e-16L42.75,0.20532023536530328L40.5,0.4055848051171188L38.25,0.5958625309081556L36,0.7714681436338715L33.75,0.9280776503073441L31.499999999999996,1.0618348051171191L29.25,1.1694460629972334L27,1.2482616776373898L24.750000000000004,1.296340947031119L22.5,1.3125000000000007L20.25,1.296340947031119L18,1.2482616776373896L15.749999999999998,1.1694460629972334L13.5,1.0618348051171191L11.25,0.928077650307344L9,0.7714681436338714L6.75,0.5958625309081554L4.5,0.40558480511711864L2.25,0.2053202353653031L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Ionic)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(143, 179, 239)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            95%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-Materialize"
+            style="border-top: 6px solid #ec7078"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/materialize.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #ec7078">
+                    Materialize
+                  </h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Este es un framework hecho por google y de uso abierto, esta
+                    página está basada en este framework, lo he usado hace un
+                    año, pero igual su documentación es muy completa y fácil de
+                    entender a la hora de desarrollar.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #ec7078; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Materialize" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(236, 112, 120)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          80%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Materialize"
+                            transform="translate(-85,34.29999923706055)"
+                          >
+                            <path
+                              d="M0,92.1L2.25,92.1L4.5,92.1L6.75,92.1L9,92.1L11.25,92.1L13.5,92.1L15.749999999999998,92.1L18,92.1L20.25,92.1L22.5,92.1L24.750000000000004,92.1L27,92.1L29.25,92.1L31.499999999999996,92.1L33.75,92.1L36,92.1L38.25,92.1L40.5,92.1L42.75,92.1L45,92.1L47.25,92.1L49.50000000000001,92.1L51.74999999999999,92.1L54,92.1L56.25,92.1L58.5,92.1L60.75000000000001,92.1L62.99999999999999,92.1L65.25,92.1L67.5,92.1L69.75,92.1L72,92.1L74.25,92.1L76.5,92.1L78.75,92.1L81,92.1L83.25,92.1L85.5,92.1L87.75,92.1L90,92.1L92.24999999999999,92.1L94.5,92.1L96.75,92.1L99.00000000000001,92.1L101.25,92.1L103.49999999999999,92.1L105.75,92.1L108,92.1L110.25000000000001,92.1L112.5,92.1L114.74999999999999,92.1L117,92.1L119.25,92.1L121.50000000000001,92.1L123.75,92.1L125.99999999999999,92.1L128.25,92.1L130.5,92.1L132.75,92.1L135,92.1L137.25,92.1L139.5,92.1L141.75,92.1L144,92.1L146.25,92.1L148.5,92.1L150.75,92.1L153,92.1L155.25,92.1L157.5,92.1L159.75,92.1L162,92.1L164.25,92.1L166.5,92.1L168.75,92.1L171,92.1L173.25,92.1L175.5,92.1L177.75,92.1L180,92.1L180,-1.028703311283777e-15L177.75,-0.32851237658448407L175.5,-0.6489356881873908L173.25,-0.9533800494530477L171,-1.2343490298141946L168.75,-1.4849242404917522L166.5,-1.6989356881873905L164.25,-1.8711137007955743L162,-1.9972186842198234L159.75,-2.07414551524979L157.5,-2.1000000000000005L155.25,-2.0741455152497896L153,-1.9972186842198227L150.75,-1.8711137007955736L148.5,-1.6989356881873896L146.25,-1.4849242404917509L144,-1.2343490298141933L141.75,-0.9533800494530461L139.5,-0.648935688187389L137.25,-0.3285123765844823L135,7.715274834628326e-16L132.75,0.3285123765844838L130.5,0.6489356881873906L128.25,0.9533800494530474L125.99999999999999,1.2343490298141944L123.75,1.484924240491752L121.50000000000001,1.6989356881873905L119.25,1.8711137007955743L117,1.9972186842198232L114.74999999999999,2.07414551524979L112.5,2.1000000000000005L110.25000000000001,2.0741455152497896L108,1.997218684219823L105.75,1.8711137007955725L103.49999999999999,1.6989356881873887L101.25,1.4849242404917498L99.00000000000001,1.2343490298141948L96.75,0.9533800494530481L94.5,0.6489356881873892L92.24999999999999,0.3285123765844825L90,-5.143516556418885e-16L87.75,-0.32851237658448545L85.5,-0.6489356881873902L83.25,-0.9533800494530489L81,-1.2343490298141944L78.75,-1.4849242404917504L76.5,-1.6989356881873903L74.25,-1.8711137007955732L72,-1.9972186842198232L69.75,-2.0741455152497896L67.5,-2.1000000000000005L65.25,-2.0741455152497896L62.99999999999999,-1.997218684219823L60.75000000000001,-1.871113700795573L58.5,-1.6989356881873898L56.25,-1.48492424049175L54,-1.2343490298141937L51.74999999999999,-0.9533800494530473L49.50000000000001,-0.6489356881873904L47.25,-0.3285123765844846L45,2.5717582782094424e-16L42.75,0.3285123765844851L40.5,0.6489356881873899L38.25,0.9533800494530487L36,1.2343490298141941L33.75,1.4849242404917502L31.499999999999996,1.69893568818739L29.25,1.8711137007955732L27,1.9972186842198232L24.750000000000004,2.0741455152497896L22.5,2.1000000000000005L20.25,2.0741455152497896L18,1.997218684219823L15.749999999999998,1.871113700795573L13.5,1.69893568818739L11.25,1.48492424049175L9,1.234349029814194L6.75,0.9533800494530484L4.5,0.6489356881873897L2.25,0.3285123765844849L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Materialize)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(245, 162, 172)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            80%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modales" id="ModalesBack">
+          <div
+            class="modal bottom-sheet"
+            id="modal-Cordova"
+            style="border-top: 6px solid #3d4a56"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/cordova.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #3d4a56">Cordova</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Es el compilador de aplicaciones web, el que permite crear
+                    un proyecto web y covertirlo en una APP; tengo experiencia
+                    de 2 años en su uso.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #3d4a56; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Cordova" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(61, 74, 86)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(67, 189, 191)"
+                        >
+                          80%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Cordova"
+                            transform="translate(-85,34.29999923706055)"
+                          >
+                            <path
+                              d="M0,92.1L2.25,92.1L4.5,92.1L6.75,92.1L9,92.1L11.25,92.1L13.5,92.1L15.749999999999998,92.1L18,92.1L20.25,92.1L22.5,92.1L24.750000000000004,92.1L27,92.1L29.25,92.1L31.499999999999996,92.1L33.75,92.1L36,92.1L38.25,92.1L40.5,92.1L42.75,92.1L45,92.1L47.25,92.1L49.50000000000001,92.1L51.74999999999999,92.1L54,92.1L56.25,92.1L58.5,92.1L60.75000000000001,92.1L62.99999999999999,92.1L65.25,92.1L67.5,92.1L69.75,92.1L72,92.1L74.25,92.1L76.5,92.1L78.75,92.1L81,92.1L83.25,92.1L85.5,92.1L87.75,92.1L90,92.1L92.24999999999999,92.1L94.5,92.1L96.75,92.1L99.00000000000001,92.1L101.25,92.1L103.49999999999999,92.1L105.75,92.1L108,92.1L110.25000000000001,92.1L112.5,92.1L114.74999999999999,92.1L117,92.1L119.25,92.1L121.50000000000001,92.1L123.75,92.1L125.99999999999999,92.1L128.25,92.1L130.5,92.1L132.75,92.1L135,92.1L137.25,92.1L139.5,92.1L141.75,92.1L144,92.1L146.25,92.1L148.5,92.1L150.75,92.1L153,92.1L155.25,92.1L157.5,92.1L159.75,92.1L162,92.1L164.25,92.1L166.5,92.1L168.75,92.1L171,92.1L173.25,92.1L175.5,92.1L177.75,92.1L180,92.1L180,-1.028703311283777e-15L177.75,-0.32851237658448407L175.5,-0.6489356881873908L173.25,-0.9533800494530477L171,-1.2343490298141946L168.75,-1.4849242404917522L166.5,-1.6989356881873905L164.25,-1.8711137007955743L162,-1.9972186842198234L159.75,-2.07414551524979L157.5,-2.1000000000000005L155.25,-2.0741455152497896L153,-1.9972186842198227L150.75,-1.8711137007955736L148.5,-1.6989356881873896L146.25,-1.4849242404917509L144,-1.2343490298141933L141.75,-0.9533800494530461L139.5,-0.648935688187389L137.25,-0.3285123765844823L135,7.715274834628326e-16L132.75,0.3285123765844838L130.5,0.6489356881873906L128.25,0.9533800494530474L125.99999999999999,1.2343490298141944L123.75,1.484924240491752L121.50000000000001,1.6989356881873905L119.25,1.8711137007955743L117,1.9972186842198232L114.74999999999999,2.07414551524979L112.5,2.1000000000000005L110.25000000000001,2.0741455152497896L108,1.997218684219823L105.75,1.8711137007955725L103.49999999999999,1.6989356881873887L101.25,1.4849242404917498L99.00000000000001,1.2343490298141948L96.75,0.9533800494530481L94.5,0.6489356881873892L92.24999999999999,0.3285123765844825L90,-5.143516556418885e-16L87.75,-0.32851237658448545L85.5,-0.6489356881873902L83.25,-0.9533800494530489L81,-1.2343490298141944L78.75,-1.4849242404917504L76.5,-1.6989356881873903L74.25,-1.8711137007955732L72,-1.9972186842198232L69.75,-2.0741455152497896L67.5,-2.1000000000000005L65.25,-2.0741455152497896L62.99999999999999,-1.997218684219823L60.75000000000001,-1.871113700795573L58.5,-1.6989356881873898L56.25,-1.48492424049175L54,-1.2343490298141937L51.74999999999999,-0.9533800494530473L49.50000000000001,-0.6489356881873904L47.25,-0.3285123765844846L45,2.5717582782094424e-16L42.75,0.3285123765844851L40.5,0.6489356881873899L38.25,0.9533800494530487L36,1.2343490298141941L33.75,1.4849242404917502L31.499999999999996,1.69893568818739L29.25,1.8711137007955732L27,1.9972186842198232L24.750000000000004,2.0741455152497896L22.5,2.1000000000000005L20.25,2.0741455152497896L18,1.997218684219823L15.749999999999998,1.871113700795573L13.5,1.69893568818739L11.25,1.48492424049175L9,1.234349029814194L6.75,0.9533800494530484L4.5,0.6489356881873897L2.25,0.3285123765844849L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Cordova)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(226, 226, 226)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(67, 189, 191)"
+                          >
+                            80%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-NodeJs"
+            style="border-top: 6px solid #404137"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/nodejs_modal.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #404137">NodeJs</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Este lenguaje es Javascript pero ahora del lado del servidor
+                    y no del cliente, tengo experiencia de 2 años en su uso y es
+                    practicamente sencillo implementar cualquier base de datos
+                    para crear los servicios CRUD para un proyecto.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #404137; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-NodeJs" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(64, 65, 55)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          85%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-NodeJs"
+                            transform="translate(-85,30.484375)"
+                          >
+                            <path
+                              d="M0,91.8375L2.25,91.8375L4.5,91.8375L6.75,91.8375L9,91.8375L11.25,91.8375L13.5,91.8375L15.749999999999998,91.8375L18,91.8375L20.25,91.8375L22.5,91.8375L24.750000000000004,91.8375L27,91.8375L29.25,91.8375L31.499999999999996,91.8375L33.75,91.8375L36,91.8375L38.25,91.8375L40.5,91.8375L42.75,91.8375L45,91.8375L47.25,91.8375L49.50000000000001,91.8375L51.74999999999999,91.8375L54,91.8375L56.25,91.8375L58.5,91.8375L60.75000000000001,91.8375L62.99999999999999,91.8375L65.25,91.8375L67.5,91.8375L69.75,91.8375L72,91.8375L74.25,91.8375L76.5,91.8375L78.75,91.8375L81,91.8375L83.25,91.8375L85.5,91.8375L87.75,91.8375L90,91.8375L92.24999999999999,91.8375L94.5,91.8375L96.75,91.8375L99.00000000000001,91.8375L101.25,91.8375L103.49999999999999,91.8375L105.75,91.8375L108,91.8375L110.25000000000001,91.8375L112.5,91.8375L114.74999999999999,91.8375L117,91.8375L119.25,91.8375L121.50000000000001,91.8375L123.75,91.8375L125.99999999999999,91.8375L128.25,91.8375L130.5,91.8375L132.75,91.8375L135,91.8375L137.25,91.8375L139.5,91.8375L141.75,91.8375L144,91.8375L146.25,91.8375L148.5,91.8375L150.75,91.8375L153,91.8375L155.25,91.8375L157.5,91.8375L159.75,91.8375L162,91.8375L164.25,91.8375L166.5,91.8375L168.75,91.8375L171,91.8375L173.25,91.8375L175.5,91.8375L177.75,91.8375L180,91.8375L180,-9.001153973733044e-16L177.75,-0.28744832951142346L175.5,-0.5678187271639666L173.25,-0.8342075432714164L171,-1.0800554010874197L168.75,-1.2993087104302825L166.5,-1.486568727163966L164.25,-1.6372244881961266L162,-1.7475663486923447L159.75,-1.8148773258435655L157.5,-1.8374999999999997L155.25,-1.8148773258435653L153,-1.747566348692344L150.75,-1.6372244881961262L148.5,-1.4865687271639654L146.25,-1.2993087104302816L144,-1.0800554010874186L141.75,-0.834207543271415L139.5,-0.5678187271639651L137.25,-0.28744832951142185L135,6.750865480299783e-16L132.75,0.2874483295114232L130.5,0.5678187271639664L128.25,0.8342075432714162L125.99999999999999,1.0800554010874197L123.75,1.2993087104302823L121.50000000000001,1.486568727163966L119.25,1.6372244881961266L117,1.7475663486923445L114.74999999999999,1.8148773258435655L112.5,1.8374999999999997L110.25000000000001,1.8148773258435653L108,1.7475663486923443L105.75,1.6372244881961253L103.49999999999999,1.4865687271639645L101.25,1.2993087104302805L99.00000000000001,1.08005540108742L96.75,0.8342075432714167L94.5,0.5678187271639653L92.24999999999999,0.2874483295114221L90,-4.500576986866522e-16L87.75,-0.2874483295114246L85.5,-0.5678187271639663L83.25,-0.8342075432714174L81,-1.0800554010874197L78.75,-1.2993087104302812L76.5,-1.4865687271639658L74.25,-1.6372244881961258L72,-1.7475663486923445L69.75,-1.8148773258435653L67.5,-1.8374999999999997L65.25,-1.814877325843565L62.99999999999999,-1.7475663486923443L60.75000000000001,-1.6372244881961255L58.5,-1.4865687271639654L56.25,-1.2993087104302807L54,-1.080055401087419L51.74999999999999,-0.8342075432714161L49.50000000000001,-0.5678187271639663L47.25,-0.2874483295114239L45,2.250288493433261e-16L42.75,0.28744832951142435L40.5,0.567818727163966L38.25,0.8342075432714172L36,1.0800554010874195L33.75,1.299308710430281L31.499999999999996,1.4865687271639656L29.25,1.6372244881961258L27,1.7475663486923445L24.750000000000004,1.814877325843565L22.5,1.8374999999999997L20.25,1.8148773258435653L18,1.7475663486923443L15.749999999999998,1.6372244881961255L13.5,1.4865687271639656L11.25,1.2993087104302807L9,1.0800554010874193L6.75,0.834207543271417L4.5,0.5678187271639658L2.25,0.2874483295114242L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-NodeJs)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(131, 205, 41)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            85%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-MongoDB"
+            style="border-top: 6px solid #81c564"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/mongodb_modal.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #81c564">MongoDB</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    Es un base de datos hecha con JavaScript y es no relacional,
+                    la comunicacion con esta base de datos es sencilla y muy
+                    rápida, tengo experiencia de 1 año en su uso.
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #81c564; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-MongoDB" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(129, 197, 100)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(162, 218, 138)"
+                        >
+                          85%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-MongoDB"
+                            transform="translate(-85,30.484375)"
+                          >
+                            <path
+                              d="M0,91.8375L2.25,91.8375L4.5,91.8375L6.75,91.8375L9,91.8375L11.25,91.8375L13.5,91.8375L15.749999999999998,91.8375L18,91.8375L20.25,91.8375L22.5,91.8375L24.750000000000004,91.8375L27,91.8375L29.25,91.8375L31.499999999999996,91.8375L33.75,91.8375L36,91.8375L38.25,91.8375L40.5,91.8375L42.75,91.8375L45,91.8375L47.25,91.8375L49.50000000000001,91.8375L51.74999999999999,91.8375L54,91.8375L56.25,91.8375L58.5,91.8375L60.75000000000001,91.8375L62.99999999999999,91.8375L65.25,91.8375L67.5,91.8375L69.75,91.8375L72,91.8375L74.25,91.8375L76.5,91.8375L78.75,91.8375L81,91.8375L83.25,91.8375L85.5,91.8375L87.75,91.8375L90,91.8375L92.24999999999999,91.8375L94.5,91.8375L96.75,91.8375L99.00000000000001,91.8375L101.25,91.8375L103.49999999999999,91.8375L105.75,91.8375L108,91.8375L110.25000000000001,91.8375L112.5,91.8375L114.74999999999999,91.8375L117,91.8375L119.25,91.8375L121.50000000000001,91.8375L123.75,91.8375L125.99999999999999,91.8375L128.25,91.8375L130.5,91.8375L132.75,91.8375L135,91.8375L137.25,91.8375L139.5,91.8375L141.75,91.8375L144,91.8375L146.25,91.8375L148.5,91.8375L150.75,91.8375L153,91.8375L155.25,91.8375L157.5,91.8375L159.75,91.8375L162,91.8375L164.25,91.8375L166.5,91.8375L168.75,91.8375L171,91.8375L173.25,91.8375L175.5,91.8375L177.75,91.8375L180,91.8375L180,-9.001153973733044e-16L177.75,-0.28744832951142346L175.5,-0.5678187271639666L173.25,-0.8342075432714164L171,-1.0800554010874197L168.75,-1.2993087104302825L166.5,-1.486568727163966L164.25,-1.6372244881961266L162,-1.7475663486923447L159.75,-1.8148773258435655L157.5,-1.8374999999999997L155.25,-1.8148773258435653L153,-1.747566348692344L150.75,-1.6372244881961262L148.5,-1.4865687271639654L146.25,-1.2993087104302816L144,-1.0800554010874186L141.75,-0.834207543271415L139.5,-0.5678187271639651L137.25,-0.28744832951142185L135,6.750865480299783e-16L132.75,0.2874483295114232L130.5,0.5678187271639664L128.25,0.8342075432714162L125.99999999999999,1.0800554010874197L123.75,1.2993087104302823L121.50000000000001,1.486568727163966L119.25,1.6372244881961266L117,1.7475663486923445L114.74999999999999,1.8148773258435655L112.5,1.8374999999999997L110.25000000000001,1.8148773258435653L108,1.7475663486923443L105.75,1.6372244881961253L103.49999999999999,1.4865687271639645L101.25,1.2993087104302805L99.00000000000001,1.08005540108742L96.75,0.8342075432714167L94.5,0.5678187271639653L92.24999999999999,0.2874483295114221L90,-4.500576986866522e-16L87.75,-0.2874483295114246L85.5,-0.5678187271639663L83.25,-0.8342075432714174L81,-1.0800554010874197L78.75,-1.2993087104302812L76.5,-1.4865687271639658L74.25,-1.6372244881961258L72,-1.7475663486923445L69.75,-1.8148773258435653L67.5,-1.8374999999999997L65.25,-1.814877325843565L62.99999999999999,-1.7475663486923443L60.75000000000001,-1.6372244881961255L58.5,-1.4865687271639654L56.25,-1.2993087104302807L54,-1.080055401087419L51.74999999999999,-0.8342075432714161L49.50000000000001,-0.5678187271639663L47.25,-0.2874483295114239L45,2.250288493433261e-16L42.75,0.28744832951142435L40.5,0.567818727163966L38.25,0.8342075432714172L36,1.0800554010874195L33.75,1.299308710430281L31.499999999999996,1.4865687271639656L29.25,1.6372244881961258L27,1.7475663486923445L24.750000000000004,1.814877325843565L22.5,1.8374999999999997L20.25,1.8148773258435653L18,1.7475663486923443L15.749999999999998,1.6372244881961255L13.5,1.4865687271639656L11.25,1.2993087104302807L9,1.0800554010874193L6.75,0.834207543271417L4.5,0.5678187271639658L2.25,0.2874483295114242L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-MongoDB)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(65, 47, 31)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(162, 218, 138)"
+                          >
+                            85%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="modal bottom-sheet"
+            id="modal-Git"
+            style="border-top: 6px solid #f05033"
+          >
+            <div class="modal-content">
+              <div class="row">
+                <div class="col l4 m4 s12" hide-on-med-and-up="">
+                  <img
+                    class="responsive-img img-size-equal"
+                    src="public/landing/img/lenguajes/git.png"
+                  />
+                </div>
+                <div class="col l8 m8 s12">
+                  <h3 class="text-center" style="color: #f05033">Git</h3>
+                  <p class="black-text text-lighten-1 flow-text">
+                    El manejo de versiones para los proyectos es muy chévere con
+                    esto, llevo usándolo 3 años con repositorios como GitLab y
+                    BitBucket
+                  </p>
+                  <div class="col l2 m4 s5">
+                    <h4 style="color: #f05033; margin-top: 30px">Nivel:</h4>
+                  </div>
+                  <div class="col l10 m8 s7">
+                    <svg id="fillgauge-Git" width="100%" height="100">
+                      <g transform="translate(0,0)">
+                        <path
+                          d="M0,50A50,50 0 1,1 0,-50A50,50 0 1,1 0,50M0,47.5A47.5,47.5 0 1,0 0,-47.5A47.5,47.5 0 1,0 0,47.5Z"
+                          transform="translate(50,50)"
+                          style="fill: rgb(240, 80, 51)"
+                        ></path>
+                        <text
+                          class="liquidFillGaugeText"
+                          text-anchor="middle"
+                          font-size="25px"
+                          transform="translate(50,80.5)"
+                          style="fill: rgb(255, 255, 255)"
+                        >
+                          94%
+                        </text>
+                        <defs>
+                          <clipPath
+                            id="clipWavefillgauge-Git"
+                            transform="translate(-85,23.726499557495117)"
+                          >
+                            <path
+                              d="M0,91.365L2.25,91.365L4.5,91.365L6.75,91.365L9,91.365L11.25,91.365L13.5,91.365L15.749999999999998,91.365L18,91.365L20.25,91.365L22.5,91.365L24.750000000000004,91.365L27,91.365L29.25,91.365L31.499999999999996,91.365L33.75,91.365L36,91.365L38.25,91.365L40.5,91.365L42.75,91.365L45,91.365L47.25,91.365L49.50000000000001,91.365L51.74999999999999,91.365L54,91.365L56.25,91.365L58.5,91.365L60.75000000000001,91.365L62.99999999999999,91.365L65.25,91.365L67.5,91.365L69.75,91.365L72,91.365L74.25,91.365L76.5,91.365L78.75,91.365L81,91.365L83.25,91.365L85.5,91.365L87.75,91.365L90,91.365L92.24999999999999,91.365L94.5,91.365L96.75,91.365L99.00000000000001,91.365L101.25,91.365L103.49999999999999,91.365L105.75,91.365L108,91.365L110.25000000000001,91.365L112.5,91.365L114.74999999999999,91.365L117,91.365L119.25,91.365L121.50000000000001,91.365L123.75,91.365L125.99999999999999,91.365L128.25,91.365L130.5,91.365L132.75,91.365L135,91.365L137.25,91.365L139.5,91.365L141.75,91.365L144,91.365L146.25,91.365L148.5,91.365L150.75,91.365L153,91.365L155.25,91.365L157.5,91.365L159.75,91.365L162,91.365L164.25,91.365L166.5,91.365L168.75,91.365L171,91.365L173.25,91.365L175.5,91.365L177.75,91.365L180,91.365L180,-6.686571523344551e-16L177.75,-0.21353304477991467L175.5,-0.421808197321804L173.25,-0.619697032144481L171,-0.8023268693792266L168.75,-0.965200756319639L166.5,-1.1043081973218039L164.25,-1.2162239055171233L162,-1.2981921447428852L159.75,-1.3481945849123635L157.5,-1.3650000000000004L155.25,-1.3481945849123635L153,-1.2981921447428848L150.75,-1.216223905517123L148.5,-1.1043081973218034L146.25,-0.9652007563196382L144,-0.8023268693792256L141.75,-0.61969703214448L139.5,-0.42180819732180286L137.25,-0.2135330447799135L135,5.014928642508412e-16L132.75,0.21353304477991447L130.5,0.42180819732180386L128.25,0.6196970321444809L125.99999999999999,0.8023268693792264L123.75,0.9652007563196388L121.50000000000001,1.1043081973218039L119.25,1.2162239055171233L117,1.2981921447428852L114.74999999999999,1.3481945849123635L112.5,1.3650000000000004L110.25000000000001,1.3481945849123635L108,1.298192144742885L105.75,1.2162239055171222L103.49999999999999,1.1043081973218027L101.25,0.9652007563196374L99.00000000000001,0.8023268693792267L96.75,0.6196970321444812L94.5,0.421808197321803L92.24999999999999,0.21353304477991364L90,-3.3432857616722755e-16L87.75,-0.21353304477991555L85.5,-0.4218081973218037L83.25,-0.6196970321444818L81,-0.8023268693792264L78.75,-0.9652007563196379L76.5,-1.1043081973218039L74.25,-1.2162239055171227L72,-1.2981921447428852L69.75,-1.3481945849123635L67.5,-1.3650000000000004L65.25,-1.3481945849123633L62.99999999999999,-1.298192144742885L60.75000000000001,-1.2162239055171224L58.5,-1.1043081973218034L56.25,-0.9652007563196376L54,-0.8023268693792259L51.74999999999999,-0.6196970321444808L49.50000000000001,-0.4218081973218038L47.25,-0.21353304477991503L45,1.6716428808361377e-16L42.75,0.21353304477991536L40.5,0.42180819732180347L38.25,0.6196970321444817L36,0.8023268693792263L33.75,0.9652007563196378L31.499999999999996,1.1043081973218036L29.25,1.2162239055171227L27,1.2981921447428852L24.750000000000004,1.3481945849123633L22.5,1.3650000000000004L20.25,1.3481945849123635L18,1.298192144742885L15.749999999999998,1.2162239055171224L13.5,1.1043081973218036L11.25,0.9652007563196376L9,0.802326869379226L6.75,0.6196970321444815L4.5,0.4218081973218033L2.25,0.2135330447799152L0,0Z"
+                              T="0.186"
+                              transform="translate(16.74,0)"
+                            ></path>
+                          </clipPath>
+                        </defs>
+                        <g clip-path="url(#clipWavefillgauge-Git)">
+                          <circle
+                            cx="50"
+                            cy="50"
+                            r="45"
+                            style="fill: rgb(255, 61, 26)"
+                          ></circle>
+                          <text
+                            class="liquidFillGaugeText"
+                            text-anchor="middle"
+                            font-size="25px"
+                            transform="translate(50,80.5)"
+                            style="fill: rgb(255, 255, 255)"
+                          >
+                            94%
+                          </text>
+                        </g>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MODALES -->
+      </div>
+    </div>
+    <!-- las vistas -->
+
+    <!-- scripts -->
+    <!-- angularJs1 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script src="/modulos/angular/angular.min.js"></script>
+    <script src="/modulos/angular/angular-route.js"></script>
+    <script src="/modulos/angular-resource/angular-resource.js"></script>
+    <!-- <script src="/modulos/materialize-css/dist/js/materialize.js"></script>
+<script src="/modulos/materialize-css/js/sidenav.js"></script> -->
+
+    <!-- app angular -->
+    <script src="/app.js"></script>
+    <script src="/utiles/Utils.js" type="text/javascript"></script>
+
+    <!-- controladores -->
+    <script src="/controladores/globalCtrl.js"></script>
+
+    <!-- landing -->
+    <script src="/controladores/inicioCtrl.js" type="text/javascript"></script>
+    <script
+      src="/controladores/hojadevidaCtrl.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="/controladores/fullstackCtrl.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- plugins material design-->
+
+    <!-- <script src="/modulos/material-dashboard/assets/js/core/jquery.min.js"></script> -->
+
+    <!-- other plugins -->
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
+    <script src="/utiles/liquidFillGauge.js" type="text/javascript"></script>
+    <!-- samrtlook -->
+    <!-- <script type="text/javascript">
+  window.smartlook || (function (d) {
+    var o = smartlook = function () {
+        o.api.push(arguments)
+      },
+      h = d.getElementsByTagName('head')[0];
+    var c = d.createElement('script');
+    o.api = new Array();
+    c.async = true;
+    c.type = 'text/javascript';
+    c.charset = 'utf-8';
+    c.src = 'https://rec.smartlook.com/recorder.js';
+    h.appendChild(c);
+  })(document);
+  smartlook('init', '0bab11da7386c453bbed748d29ba99812b0952e3');
+</script> -->
+    <!-- facebook share -->
+    <div id="fb-root"></div>
+    <!-- <script>
+  (function (d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s);
+    js.id = id;
+    js.src =
+      'https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v3.2&appId=309396412988609&autoLogAppEvents=1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script> -->
+
+    <div class="hiddendiv common"></div>
+  </body>
+</html>

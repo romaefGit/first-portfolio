@@ -1,0 +1,259 @@
+<div ng-controller="empresasAdmCtrl" ng-init="init()">
+	<div class="wrapper ">
+		<div ng-include src="'/includes_admin/sidebar.html'"></div>
+		
+		<div class="main-panel">
+				<div ng-include src="'/includes_admin/navbar.html'"></div>
+			<div class="content">
+
+				<div class="container-fluid">
+					<div class="row justify-content-md-center">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-tabs card-header-{{styleOfTheSite}}">
+									<div class="nav-tabs-navigation">
+										<div class="nav-tabs-wrapper">
+											<!-- <span class="nav-tabs-title">Tasks:</span> -->
+											<ul class="nav nav-tabs" data-tabs="tabs">
+												<li class="nav-item">
+													<a class="nav-link" ng-class="{ active: isSet(1) }" ng-click="setTab(1)" data-toggle="tab" href="">
+														<i class="material-icons">list</i> Listar
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" ng-class="{ active: isSet(2) }" ng-click="setTab(2)" data-toggle="tab" href="">
+														<i class="material-icons">create</i> Crear
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+												<li class="nav-item" ng-if="showEditForm == true">
+													<a class="nav-link" ng-class="{ active: isSet(3) }" ng-click="setTab(3)" data-toggle="tab" href="">
+														<i class="material-icons">edit</i> Editar {{empresaToEdit.nombre}}
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- Secciones -->
+								<div class="card-body">
+									<div class="tab-content">
+										<!-- listar -->
+										<div class="tab-pane" ng-class="{ active: isSet(1) }">
+											<div class="table-responsive">
+												<table class="table table-hover">
+													<thead class="">
+														<th>Logo</th>
+														<th>Nombre</th>
+														<th>Selector</th>
+														<th>Descripción</th>
+                                                        <th>Propiedades</th>
+                                                        <th>Acción</th>
+													</thead>
+													<tbody>
+														<tr ng-repeat="empresa in empresas">
+															<td>
+																<img class="img img-responsive img-table" ng-if="empresa.media.url" src="/empresas-img/{{empresa.media.url}}">
+																<img class="img img-responsive img-table" ng-if="!empresa.media.url" src="/empresas-img/default.png">
+															</td>
+															<td>{{empresa.nombre}}</td>
+															<td>{{empresa.selector}}</td>
+															<td>{{empresa.descripcion | limitTo: 100 }}{{empresa.descripcion.length > 100 ? '...' : ''}}</td>
+															<td>{{empresa.propiedades}}</td>
+															<td>
+																<i class="material-icons delete-image text-{{styleOfTheSite}} pointer pull-left" ng-click="openEdit(empresa)">
+																	edit
+																</i>
+																<i class="material-icons delete-image text-danger pointer pull-right" ng-click="modalDeleteEmpresa(empresa)">
+																	delete_forever
+																</i>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!-- Crear -->
+										<div class="card border-none tab-pane" ng-class="{ active: isSet(2) }">
+											<div class="card-profile">
+												<a ng-if="empresa.media.url" class="pichref" id="createImg" href="/empresas-img/{{empresa.media.url}}" data-lightbox="image-1" data-title="{{empresa.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="createImg" style="background-image: url('/empresas-img/{{empresa.media.url}}')"></div>
+													</div>
+												</a>
+												<a ng-if="!empresa.media.url" class="pichref" id="createImg" href="/empresas-img/default.png" data-lightbox="image-2" data-title="{{empresaToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="createImg" style="background-image: url('/empresas-img/default.png')"></div>
+													</div>
+												</a>
+												<div class="p-image">
+													<i class="material-icons upload-button create">
+														add_a_photo
+													</i>
+													<input class="file-upload create" type="file" accept="image/*" data-img-id="createImg"/>
+												</div>
+												<div class="d-image" ng-if="(empresa.media.idmedia) || (media.idmedia)">
+													<i class="material-icons delete-image create" ng-click="modalDeleteImage()">
+														delete_forever
+													</i>
+												</div>
+											</div>
+											<div class="card-body">
+												<form>
+													<div class="col-md-12" style="margin-top: 15px">
+														<h4 class="card-title text-center">Información básica</h4>
+													</div>
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label class="col-form-label" for="recipient-name">    
+															Nombre
+															</label>
+															<input class="form-control" id="nombre" name="nombre" ng-model="empresa.nombre" type="text">
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="repeatSelect"> Selector: </label>
+																<input class="form-control" id="selector" name="selector" ng-model="empresa.selector" type="text">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="repeatSelect"> Propiedades: </label>
+																<input class="form-control" id="propiedades" name="propiedades" ng-model="empresa.propiedades" type="text">
+															</div>
+														</div>
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="repeatSelect"> Descripción: </label>
+																<textarea class="form-control" id="descripcion" name="descripcion" ng-model="empresa.descripcion"></textarea>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="repeatSelect"> Lenguajes Aprendidos: </label>
+															</div>
+														</div>
+															
+														<!-- <div class="col-xs-12 col-md-3 d-block d-md-none" ng-repeat="language in languages">
+															<div class="form-check">
+																<label class="form-check-label">
+																  <input class="form-check-input" type="checkbox" value="">
+																  <span class="form-check-sign">
+																	<span class="check" data-color="{{styleOfTheMenu}}"></span>
+																  </span>
+																</label>
+																<p>{{language.nombre}}</p>
+															</div>
+														</div> -->
+														<div class="col-md-12">
+															<multiple-autocomplete ng-model="selectedLanguagesToCreate"
+																			object-property="nombre"
+																			suggestions-arr="languages">
+															</multiple-autocomplete>
+														</div>
+													</div>
+													<button class="btn btn-{{styleOfTheSite}} pull-right" ng-click="crear()" style="margin-top: 15px;">
+														Crear
+													</button>
+												</form>
+											</div>
+										</div>
+										<!-- Editar -->
+										<div class="card border-none tab-pane" ng-class="{ active: isSet(3) }">
+											<div class="card-profile">
+												<a ng-if="empresaToEdit.media.url" class="pichref" id="editImg" href="/empresas-img/{{empresaToEdit.media.url}}" data-lightbox="image-2" data-title="{{empresaToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="editImg" style="background-image: url('/empresas-img/{{empresaToEdit.media.url}}')"></div>
+													</div>
+												</a>
+												<a ng-if="!empresaToEdit.media.url" class="pichref" id="editImg" href="/empresas-img/default.png" data-lightbox="image-2" data-title="{{empresaToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="editImg" style="background-image: url('/empresas-img/default.png')"></div>
+													</div>
+												</a>
+												<div class="p-image">
+													<i class="material-icons upload-button edit">
+														add_a_photo
+													</i>
+													<input class="file-upload edit" type="file" accept="image/*" data-img-id="editImg"/>
+												</div>
+											</div>
+											<div class="card-body">
+												<form>
+													<div class="col-md-12" style="margin-top: 15px">
+														<h4 class="card-title text-center">Información básica</h4>
+													</div>
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label class="col-form-label" for="recipient-name">    
+															Nombre
+															</label>
+															<input class="form-control" id="nombre" name="nombre" ng-model="empresaToEdit.nombre" type="text">
+														</div>
+														<div class="form-group col-md-6">
+															<label class="col-form-label" for="recipient-name">
+															Porcentaje de aprendizaje
+															</label>
+															<input class="form-control" id="porcentaje" name="porcentaje" ng-model="empresaToEdit.porcentaje" type="number">
+														</div>
+													</div>
+													<div class="row">
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="repeatSelect"> Selector: </label>
+																<input class="form-control" id="selector" name="selector" ng-model="empresaToEdit.selector" type="text">
+															</div>
+														</div>
+														<div class="col-md-6">
+															<div class="form-group">
+																<label for="repeatSelect"> Propiedades: </label>
+																<input class="form-control" id="propiedades" name="propiedades" ng-model="empresaToEdit.propiedades" type="text">
+															</div>
+														</div>
+														<div class="col-md-8">
+															<div class="form-group">
+																<label for="repeatSelect"> Descripción: </label>
+																<textarea class="form-control" id="descripcion" name="descripcion" ng-model="empresaToEdit.descripcion"></textarea>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="form-group">
+																<label for="repeatSelect"> Lenguajes Aprendidos s: </label>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<multiple-autocomplete ng-model="empresaToEdit.languagesSelected"
+																			object-property="nombre"
+																			before-remove-item="beforeRemoveLanguage"
+																			after-select-item="afterSelectLanguage"
+																			suggestions-arr="languages">
+															</multiple-autocomplete>
+														</div>
+													</div>
+													<button class="btn btn-{{styleOfTheSite}} pull-right" ng-click="editar()">
+														Editar
+													</button>
+													<div class="clearfix">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- displays none -->
+<input type="text" id="empresaToDelete" value="" style="display: none">
+<input type="text" id="languagesLoadFirst" value="" style="display: none">

@@ -1,0 +1,103 @@
+<div ng-controller="empleadosAdmCtrl" ng-init="init()">
+    <div class="wrapper ">
+        <div ng-include src="'/includes_admin/sidebar.html'"></div>
+        
+        <div class="main-panel">
+            <div ng-include src="'/includes_admin/navbar.html'"></div>
+            
+            <div class="content">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-warning">
+                                    <h4 class="card-title">
+                                        Agregar Empleado
+                                    </h4>
+                                    <p class="card-category">
+                                        Llene los campos requeridos
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                    	<div class="row">
+                                        	<div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repeatSelect"> Cargo </label>
+                                                    <select class="form-control" id="cargo" name="cargo" ng-model="nuevoEmpleado.cargo.id" >
+                                                        <option ng-repeat="opcion in cargos" ng-value="{{opcion.id}}" ng-click="escogido(opcion)">{{opcion.nombre}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        N° de identificación
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.identificacion" id="identificacion" name="identificacion" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Nombres
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.nombres" id="nombres" name="nombres" type="text"/>
+                                                </div>
+                                            </div>
+                                             <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Apellidos
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.apellidos" id="apellidos" name="apellidos" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        E-mail
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.correo" id="correo" name="correo" type="email"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Dirección
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.direccion" id="direccion" name="direccion" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Teléfono
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoEmpleado.telefono" id="telefono" name="telefono" type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-warning pull-right" ng-click="guardarEmpleado(nuevoEmpleado)">
+                                            Agregar
+                                        </button>
+                                        <div class="clearfix">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

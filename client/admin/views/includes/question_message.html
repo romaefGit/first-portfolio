@@ -1,0 +1,29 @@
+<div aria-hidden="true" aria-labelledby="modal_message_question" class="modal fade" id="questionMessageModal" role="dialog" tabindex="-1">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-{{modalQuestion.type}}">
+                <h3 class="modal-title text-center text-{{modalQuestion.colorText}}" id="modal_message_question">
+                    {{modalQuestion.title}}
+                </h3>
+                <button aria-label="Close" class="close" data-dismiss="modal" type="button">
+                    <span class="text-{{modalQuestion.colorText}}" aria-hidden="true">
+                        ×
+                    </span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p class="text-center">
+                    {{modalQuestion.message}}
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="{{modalQuestion.idAcceptAction}}" class="btn btn-{{modalQuestion.type}} text-{{modalQuestion.colorText}}" type="button">
+                    Aceptar
+                </button>
+                <button class="btn btn-{{modalQuestion.type}} text-{{modalQuestion.colorText}}" type="button" data-dismiss="modal">
+                    Cancelar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

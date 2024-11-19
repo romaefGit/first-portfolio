@@ -1,0 +1,152 @@
+<div ng-controller="fullstackCtrl" ng-init="init()">
+    <!-- Cargando div -->
+    <div ng-include src="'includes/loader.html'"></div>
+    <!-- Cargando div -->
+    
+    <div id="content" layout="row">
+        <div flex="" flex-offset="100">
+            <div class="parallax-container" id="index-banner">
+                <div class="section no-pad-bot">
+                    <div class="container contene">
+                        <h3 class="header center light animated hide-on-small-only nombre-header textShadow">
+                            Full stack
+                        </h3>
+                        <h5 class="header center light animated hide-on-med-and-up nombre-header textShadow">
+                            Full stack
+                        </h5>
+                        <div class="row animated photo-header divImgPerfil">
+                            <div class="col s4 offset-s4 hide-on-small-only">
+                                <img id="romario" class="responsive-img circle materialboxed cursor-normal img-header" src="public/landing/img/menu/img_perfil_2.png">
+                                </img>
+                                <img id="alien" class="responsive-img circle materialboxed2 cursor-normal img-header" src="public/landing/img/menu/romaef.png" style="display: none"/>
+                            </div>
+                            <div class="col s6 offset-s3 hide-on-med-and-up">
+                                <img class="responsive-img circle materialboxed2 cursor-normal img-header" src="public/landing/img/menu/img_perfil_2.png">
+                                </img>
+                            </div>
+                        </div>
+                        <div class="row center">
+                            <h5 class="header col s12 light animated profesion-header textShadow">
+                                "Al son que le tocan baila"
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="parallax background-change hide-on-med-and-up" style="background-image: url('{{imagenUno}}')"></div>
+                <div class="parallax hide-on-small-only">
+                    <img class="background-change" src="public/landing/img/elegidas/efecto/fullstack_nothing.png" style="background-image: url('{{imagenUno}}')">
+                </div>
+                <div class="absolute-action-btn menu-btn" ng-click="clickEnNavButton()">
+                    <i class="material-icons">
+                        menu
+                    </i>
+                </div>
+                <!-- redes sociales -->
+                <div ng-include src="'includes/redes_sociales.html'"></div>
+            </div>
+
+            <div class="container">
+                <div class="section" id="seccion1">
+                    <!--   Icon Section   -->
+                    <div class="row">
+                        <div class="col s12 m12">
+                            <div class="icon-block">
+                                <p class="center color-personalized-text icons_to_show">
+                                    <i class="material-icons pointer rayo animated">
+                                        flash_on
+                                    </i>
+                                </p>
+                                <h2 class="center h2_to_small" id="meta_title">
+                                    ¿Que es un desarrollador full stack?
+                                </h2>
+                                <div class="col s12 m6 l6 composicionBlock">
+                                    <p class="light" id="meta_description">
+                                        En resumen es la persona que en su vida a a adquirido una fascinación por la programación y los lenguajes que la conforman, entre ellos los nuevos, los viejos, los de mayor escalabilidad, los de baja y alta libertad
+                                    </p>
+                                </div>
+                                <div class="col s12 m6 l6 composicionBlock">
+                                   <!--  <p>
+                                        Aunque tiene sus preferencias, no le asusta aprender algo nuevo, mentiras, si le asusta pero lo intenta por que de que otra forma se aprende si no es intentándolo.
+                                    </p> -->
+                                    <p class="light">
+                                        En lo que lleva de experiencia se da cuenta que la gran mayoría de programadores están enfocados en solo aprender un lenguaje, certificarse y trabajar en el toda su vida   .
+                                    </p>
+                                </div>
+                                <div class="col s12 composicionBlock">
+                                    <p class="light">
+                                        Allí entra la inspiración de un esarrollador full stack 'El todero', el que sabe de Front y Back. Al que le piden algo y sin saber como hacerlo, investiga, piensa, propone y desarrolla soluciones basado en su variada experiencia.
+                                    </p>
+                                </div>
+                                <div class="col s12">
+                                    <p class="light">
+                                        Adentrandonos más, un desarrollador de Front-End es el encargado de hacer la parte visual de como se va a ver el sistema de cara el cliente, que botones, menus, colores, secciones y demás cosas que pueda llevar la parte gráfica y funcional, todo esto se hace por código HTML y CSS en el caso de las páginas web, formularios y una que otra animación se hace con JavaScript o alguna librería o lenguaje que se derive de este.
+                                    </p>
+                                </div>
+                                <div class="col s12">
+                                    <p class="light">
+                                        Un desarrollador de Back-End es el que hace las funcionalidades del sistema, es en donde se establece conexión con la información que se muestra, que se guarda, se edita o se elimina, todo esto se hace por medio de un servidor al cual llega la información y se conecta dinamicamente a una base de datos.
+                                    </p>
+                                    
+                                    <p class="light">
+                                        En en un proyecto web, trabajan varios profesionales:
+                                    </p>
+                                    <ul class="collection">
+                                        <li class="collection-item avatar">
+                                          <i class="material-icons circle orange">format_paint</i>
+                                          <span class="title">Diseñador gráfico</span>
+                                          <p class="light">Está orientado a diseñar todo lo que puede haber en una página, luego maquetar lo cual traduce volver el diseño en código HTML y CSS compatible con todos los navegadores (Chrome, Safari, Edge, FireFox, etc...)
+                                          </p>
+                                          <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                                        </li>
+                                        <li class="collection-item avatar">
+                                          <i class="material-icons circle green">settings_overscan</i>
+                                          <span class="title">Desarrollador Front - End</span>
+                                          <p class="light">
+                                             Se dedica a dejar los estilos tal cual el diseñador lo requiere, funcionalidades que conecten con la parte del back y algunas animaciones o maquetación de nuevas secciones en la página. Maquetar es pasar de diseño a código HTML y CSS. 
+                                          </p>
+                                          <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                                        </li>
+                                        <li class="collection-item avatar">
+                                          <i class="material-icons circle teal">settings</i>
+                                          <span class="title">Desarrollador Back - End</span>
+                                          <p class="light">
+                                            Se encarga de crear una estructura en el tema de la información a mostrar y manipular.
+                                          </p>
+                                          <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                                        </li>
+                                        <li class="collection-item avatar">
+                                          <i class="material-icons circle red">search</i>
+                                          <span class="title">SEO</span>
+                                          <p class="light">
+                                            Se encarga de posicionar una página web en los buscadores, esto lo logra con monitoreo constante, semanal o quincenal de que busquedas son las que mas hace la gente sobre el tema principal de la página, apartir de estos se generan estrategias, comprar keywords, generar contenido relacionado que lleve a la página y esta así se acerque más en los primeros lugares.
+                                          </p>
+                                          <!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> -->
+                                        </li>
+                                    </ul>
+
+                                    <p class="light">
+                                        Un desarrollador Full stack sabe de todas estos temas, tiene la capacidad de fascinarse con todo esto y puede dar solución a cualquier problema.
+                                    </p>
+
+                                    <div class="fb-share-button" 
+                                        data-href="http://www.romaef.com/#!/fullstack" 
+                                        data-layout="button_count">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Footer -->
+    <div ng-include src="'includes/footer.html'"></div>
+    <!-- MODALES -->
+    <div class="modales" id="ModalesFront">
+    </div>
+    <div class="modales" id="ModalesBack">
+    </div>
+    <!-- MODALES -->
+</div>

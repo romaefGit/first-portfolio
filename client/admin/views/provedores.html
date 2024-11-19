@@ -1,0 +1,80 @@
+<div ng-controller="provedoresAdmCtrl" ng-init="init()">
+    <div class="wrapper ">
+        <div ng-include src="'/includes_admin/sidebar.html'"></div>
+        
+        <div class="main-panel">
+            <div ng-include src="'/includes_admin/navbar.html'"></div>
+            
+            <div class="content">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-warning">
+                                    <h4 class="card-title">
+                                        Agregar Provedor
+                                    </h4>
+                                    <p class="card-category">
+                                        Llene los campos requeridos
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                    	<div class="row">
+                                        	<div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        NIT del Proveedor
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProveedor.nit" id="nit" name="nit" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Nombre
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProveedor.nombre" id="nombre" name="nombre" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Teléfono
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProveedor.telefono" id="telefono" name="telefono" type="number"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Dirección
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProveedor.direccion" id="direccion" name="direccion" type="text"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-warning pull-right" ng-click="guardarProveedor(nuevoProveedor)">
+                                            Agregar
+                                        </button>
+                                        <button class="btn btn-secondary pull-right" ng-click="limpiar()">
+                                            Limpiar
+                                        </button>
+                                        <div class="clearfix">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

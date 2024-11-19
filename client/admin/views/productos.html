@@ -1,0 +1,85 @@
+<div ng-controller="productosAdmCtrl" ng-init="init()">
+    <div class="wrapper ">
+        <div ng-include src="'/includes_admin/sidebar.html'"></div>
+        
+        <div class="main-panel">
+            <div ng-include src="'/includes_admin/navbar.html'"></div>
+            
+            <div class="content">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header card-header-warning">
+                                    <h4 class="card-title">
+                                        Agregar Producto
+                                    </h4>
+                                    <p class="card-category">
+                                        Llene los campos requeridos
+                                    </p>
+                                </div>
+                                <div class="card-body">
+                                    <form>
+                                    	<div class="row">
+                                        	<div class="col-md-10">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Código
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProducto.codigo" id="codigo" name="codigo" type="number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Especificación
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProducto.nombres" id="nombres" name="nombres" type="text"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label for="repeatSelect"> Proveedores: </label>
+                                                    <select class="form-control" id="proveedor" name="proveedor" ng-model="nuevoProducto.proveedor.id" >
+                                                        <option ng-repeat="opcion in proveedores" ng-value="{{opcion.id}}" ng-click="escogido(opcion)">{{opcion.nombre}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Precio $ {{nuevoProducto.precio}} COL
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProducto.precio" id="precio" name="precio" type="number"/>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="bmd-label-floating">
+                                                        Cantidad
+                                                    </label>
+                                                    <input class="form-control" ng-model="nuevoProducto.cantidad" id="cantidad" name="cantidad" type="number"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-warning pull-right" ng-click="guardarProducto(nuevoProducto)">
+                                            Agregar
+                                        </button>
+                                        <div class="clearfix">
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>

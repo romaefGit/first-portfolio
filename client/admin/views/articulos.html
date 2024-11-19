@@ -1,0 +1,223 @@
+<div ng-controller="articulosAdmCtrl" ng-init="init()">
+	<div class="wrapper ">
+		<div ng-include src="'/includes_admin/sidebar.html'"></div>
+		
+		<div class="main-panel">
+				<div ng-include src="'/includes_admin/navbar.html'"></div>
+			<div class="content">
+
+				<div class="container-fluid">
+					<div class="row justify-content-md-center">
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header card-header-tabs card-header-{{styleOfTheSite}}">
+									<div class="nav-tabs-navigation">
+										<div class="nav-tabs-wrapper">
+											<!-- <span class="nav-tabs-title">Tasks:</span> -->
+											<ul class="nav nav-tabs" data-tabs="tabs">
+												<li class="nav-item">
+													<a class="nav-link" ng-class="{ active: isSet(1) }" ng-click="setTab(1)" data-toggle="tab" href="">
+														<i class="material-icons">list</i> Listar
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+												<li class="nav-item">
+													<a class="nav-link" ng-class="{ active: isSet(2) }" ng-click="setTab(2)" data-toggle="tab" href="">
+														<i class="material-icons">create</i> Crear
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+												<li class="nav-item" ng-if="showEditForm == true">
+													<a class="nav-link" ng-class="{ active: isSet(3) }" ng-click="setTab(3)" data-toggle="tab" href="">
+														<i class="material-icons">edit</i> Editar {{articuloToEdit.nombre}}
+														<div class="ripple-container"></div>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- Secciones -->
+								<div class="card-body">
+									<div class="tab-content">
+										<!-- listar -->
+										<div class="tab-pane" ng-class="{ active: isSet(1) }">
+											<div class="table-responsive">
+												<table class="table table-hover">
+													<thead class="">
+														<th>Imagen</th>
+														<th>Título</th>
+														<th>Descripción</th>
+														<th>Meta</th>
+														<th>Og</th>
+														<th>Acción</th>
+													</thead>
+													<tbody>
+														<tr ng-repeat="articulo in articulos">
+															<td>
+																<img class="img img-responsive img-table" ng-if="articulo.media.url" src="/articulos-img/{{articulo.media.url}}">
+																<img class="img img-responsive img-table" ng-if="!articulo.media.url" src="/articulos-img/default.png">
+															</td>
+															<td>{{articulo.titulo}}</td>
+															<td>{{articulo.meta_description}}</td>
+															<td>{{articulo.og_title}}</td>
+															<td>{{articulo.descripcion | limitTo: 100 }}{{articulo.descripcion.length > 100 ? '...' : ''}}</td>
+															<td>
+																<i class="material-icons delete-image text-{{styleOfTheSite}} pointer pull-left" ng-click="openEdit(articulo)">
+																	edit
+																</i>
+																<i class="material-icons delete-image text-danger pointer pull-right" ng-click="modalDeletearticulo(articulo)">
+																	delete_forever
+																</i>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+										</div>
+										<!-- Crear -->
+										<div class="card border-none tab-pane" ng-class="{ active: isSet(2) }">
+											<div class="card-profile">
+												<a ng-if="articulo.media.url" class="pichref" id="createImg" href="/articulos-img/{{articulo.media.url}}" data-lightbox="image-1" data-title="{{articulo.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="createImg" style="background-image: url('/articulos-img/{{articulo.media.url}}')"></div>
+													</div>
+												</a>
+												<a ng-if="!articulo.media.url" class="pichref" id="createImg" href="/articulos-img/default.png" data-lightbox="image-2" data-title="{{articuloToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="createImg" style="background-image: url('/articulos-img/default.png')"></div>
+													</div>
+												</a>
+												<div class="p-image">
+													<i class="material-icons upload-button create">
+														add_a_photo
+													</i>
+													<input class="file-upload create" type="file" accept="image/*" data-img-id="createImg"/>
+												</div>
+											</div>
+											<div class="card-body">
+												<form>
+													<div class="col-md-12" style="margin-top: 15px">
+														<h4 class="card-title text-center">Información básica</h4>
+													</div>
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label class="col-form-label" for="titulo">    
+															    Título
+															</label>
+															<input class="form-control" id="titulo" name="titulo" ng-model="articulo.titulo" type="text">
+														</div>
+                                                        <div class="form-group col-md-6">
+                                                            <label class="col-form-label" for="recipient-name">    
+                                                                Og title - Social
+                                                            </label>
+                                                            <input class="form-control" id="og_title" name="og_title" ng-model="articulo.og_title" type="text">
+                                                        </div>
+													</div>
+													<div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" for="recipient-name">
+                                                                    Meta - Descripción
+                                                                </label>
+                                                                <textarea class="form-control" id="meta_description" name="meta_description" ng-model="articulo.meta_description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" for="descripcion">
+                                                                    Descripción
+                                                                </label>
+                                                                <textarea class="form-control" id="descripcion" name="descripcion" ng-model="articulo.descripcion"></textarea>
+                                                            </div>
+                                                        </div>
+													</div>
+													<button class="btn btn-{{styleOfTheSite}} pull-right" ng-click="crear()">
+														Crear
+													</button>
+													<div class="clearfix">
+													</div>
+													<div class="row">
+													</div>
+												</form>
+											</div>
+										</div>
+										<!-- Editar -->
+										<div class="card border-none tab-pane" ng-class="{ active: isSet(3) }">
+											<div class="card-profile">
+												<a ng-if="articuloToEdit.media.url" class="pichref" id="editImg" href="/articulos-img/{{articuloToEdit.media.url}}" data-lightbox="image-2" data-title="{{articuloToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="editImg" style="background-image: url('/articulos-img/{{articuloToEdit.media.url}}')"></div>
+													</div>
+												</a>
+												<a ng-if="!articuloToEdit.media.url" class="pichref" id="editImg" href="/articulos-img/default.png" data-lightbox="image-2" data-title="{{articuloToEdit.nombre}}">
+													<div class="image-cropper">
+														<div class="circle profile-pic" data-img-id="editImg" style="background-image: url('/articulos-img/default.png')"></div>
+													</div>
+												</a>
+												<div class="p-image">
+													<i class="material-icons upload-button edit">
+														add_a_photo
+													</i>
+													<input class="file-upload edit" type="file" accept="image/*" data-img-id="editImg"/>
+												</div>
+											</div>
+											<div class="card-body">
+												<form>
+													<div class="col-md-12" style="margin-top: 15px">
+														<h4 class="card-title text-center">Información básica</h4>
+													</div>
+													<div class="row">
+														<div class="form-group col-md-6">
+															<label class="col-form-label" for="titulo">    
+															    Título
+															</label>
+															<input class="form-control" id="titulo" name="titulo" ng-model="articuloToEdit.titulo" type="text">
+														</div>
+                                                        <div class="form-group col-md-6">
+                                                            <label class="col-form-label" for="recipient-name">    
+                                                                Og title - Social
+                                                            </label>
+                                                            <input class="form-control" id="og_title" name="og_title" ng-model="articuloToEdit.og_title" type="text">
+                                                        </div>
+													</div>
+													<div class="row">
+                                                        <div class="form-group col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" for="recipient-name">
+                                                                    Meta - Descripción
+                                                                </label>
+                                                                <textarea class="form-control" id="meta_description" name="meta_description" ng-model="articuloToEdit.meta_description"></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                            <div class="form-group">
+                                                                <label class="col-form-label" for="descripcion">
+                                                                    Descripción
+                                                                </label>
+                                                                <textarea class="form-control" id="descripcion" name="descripcion" ng-model="articuloToEdit.descripcion"></textarea>
+                                                            </div>
+                                                        </div>
+													</div>
+													<button class="btn btn-{{styleOfTheSite}} pull-right" ng-click="editar()">
+														Editar
+													</button>
+													<div class="clearfix">
+													</div>
+												</form>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<!-- displays none -->
+<input type="text" id="articuloToDelete" value="" style="display: none">
