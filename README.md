@@ -1,5 +1,7 @@
 # My First Portfolio - AngularJS
 
+![](https://romaefportfolio.web.app/assets/img/web/first-portfolio/2.avif)
+
 This is a portfolio project developed with AngularJS. It includes parallax effects, Materialize CSS, and various animations to showcase my skills and professional experience.
 
 ## Features
