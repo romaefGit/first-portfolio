@@ -1,0 +1,88 @@
+<div class="card">
+  <app-crud-tabs [tab]="tab()" [editLabel]="editando()?.titulo ?? null" (tabChange)="setTab($event)" />
+
+  <div class="card-body">
+    @switch (tab()) {
+      @case (1) {
+        <div class="table-responsive">
+          <table class="table table-hover data-table">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Título</th>
+                <th>Meta</th>
+                <th>Og</th>
+                <th>Descripción</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (articulo of items(); track articulo.idarticulo) {
+                <tr>
+                  <td><img class="data-table__thumb" [src]="imageOf(articulo)" [alt]="articulo.titulo" /></td>
+                  <td>{{ articulo.titulo }}</td>
+                  <td>{{ articulo.meta_description }}</td>
+                  <td>{{ articulo.og_title }}</td>
+                  <td>{{ resumen(articulo.descripcion) }}</td>
+                  <td>
+                    <div class="data-table__actions">
+                      <button class="data-table__action" type="button" aria-label="Editar" (click)="openEdit(articulo)">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button class="data-table__action data-table__action--danger" type="button" aria-label="Eliminar"
+                              (click)="confirmDelete(articulo)">
+                        <i class="material-icons">delete_forever</i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+      @case (2) {
+        <div class="crud-form">
+          <app-image-upload [src]="imageOf(null)" [title]="nuevo.titulo ?? ''" (fileChange)="file = $event" />
+          <ng-container *ngTemplateOutlet="formulario; context: { $implicit: nuevo, accion: 'Crear' }" />
+        </div>
+      }
+      @case (3) {
+        @if (editando(); as articulo) {
+          <div class="crud-form">
+            <app-image-upload [src]="imageOf(articulo)" [title]="articulo.titulo" (fileChange)="file = $event" />
+            <ng-container *ngTemplateOutlet="formulario; context: { $implicit: articulo, accion: 'Editar' }" />
+          </div>
+        }
+      }
+    }
+  </div>
+</div>
+
+<ng-template #formulario let-articulo let-accion="accion">
+  <form (ngSubmit)="accion === 'Crear' ? crear(articulo) : editar(articulo)">
+    <h4 class="crud-form__heading">Información básica</h4>
+    <div class="crud-form__grid">
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="titulo">Título</label>
+        <input class="form-control" id="titulo" name="titulo" [(ngModel)]="articulo.titulo" type="text" />
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="og_title">Og title</label>
+        <input class="form-control" id="og_title" name="og_title" [(ngModel)]="articulo.og_title" type="text" />
+      </div>
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <label class="crud-form__label" for="meta_description">Meta description</label>
+        <textarea class="form-control crud-form__textarea" id="meta_description" name="meta_description"
+                  [(ngModel)]="articulo.meta_description"></textarea>
+      </div>
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <label class="crud-form__label" for="descripcion">Descripción</label>
+        <textarea class="form-control crud-form__textarea" id="descripcion" name="descripcion" [(ngModel)]="articulo.descripcion"></textarea>
+      </div>
+    </div>
+    <div class="crud-form__actions">
+      <button class="btn btn-info" type="submit">{{ accion }}</button>
+    </div>
+  </form>
+</ng-template>

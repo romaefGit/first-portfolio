@@ -1,0 +1,97 @@
+<div class="card">
+  <app-crud-tabs [tab]="tab()" [editLabel]="editando()?.nombre ?? null" (tabChange)="setTab($event)" />
+
+  <div class="card-body">
+    @switch (tab()) {
+      @case (1) {
+        <div class="table-responsive">
+          <table class="table table-hover data-table">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Nombre</th>
+                <th>Selector</th>
+                <th>Porcentaje</th>
+                <th>Tipo</th>
+                <th>Descripción</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (language of items(); track language.idlanguage) {
+                <tr>
+                  <td><img class="data-table__thumb" [src]="imageOf(language)" [alt]="language.nombre" /></td>
+                  <td>{{ language.nombre }}</td>
+                  <td>{{ language.selector }}</td>
+                  <td>{{ language.porcentaje }}</td>
+                  <td>{{ language.tipo }}</td>
+                  <td>{{ resumen(language.descripcion) }}</td>
+                  <td>
+                    <div class="data-table__actions">
+                      <button class="data-table__action" type="button" aria-label="Editar" (click)="openEdit(language)">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button class="data-table__action data-table__action--danger" type="button" aria-label="Eliminar"
+                              (click)="confirmDelete(language)">
+                        <i class="material-icons">delete_forever</i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+      @case (2) {
+        <div class="crud-form">
+          <app-image-upload [src]="imageOf(null)" [title]="nuevo.nombre ?? ''" (fileChange)="file = $event" />
+          <ng-container *ngTemplateOutlet="formulario; context: { $implicit: nuevo, accion: 'Crear' }" />
+        </div>
+      }
+      @case (3) {
+        @if (editando(); as language) {
+          <div class="crud-form">
+            <app-image-upload [src]="imageOf(language)" [title]="language.nombre" (fileChange)="file = $event" />
+            <ng-container *ngTemplateOutlet="formulario; context: { $implicit: language, accion: 'Editar' }" />
+          </div>
+        }
+      }
+    }
+  </div>
+</div>
+
+<ng-template #formulario let-language let-accion="accion">
+  <form (ngSubmit)="accion === 'Crear' ? crear(language) : editar(language)">
+    <h4 class="crud-form__heading">Información básica</h4>
+    <div class="crud-form__grid">
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" name="nombre" [(ngModel)]="language.nombre" type="text" />
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="porcentaje">Porcentaje de aprendizaje</label>
+        <input class="form-control" id="porcentaje" name="porcentaje" [(ngModel)]="language.porcentaje" type="number" />
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="tipo">Tipo</label>
+        <select class="form-control" id="tipo" name="tipo" [(ngModel)]="language.tipoId">
+          @for (opcion of tipos; track opcion.id) {
+            <option [ngValue]="opcion.id">{{ opcion.nombre }}</option>
+          }
+        </select>
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="selector">Selector</label>
+        <input class="form-control" id="selector" name="selector" [(ngModel)]="language.selector" type="text" />
+      </div>
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <label class="crud-form__label" for="descripcion">Descripción</label>
+        <textarea class="form-control crud-form__textarea" id="descripcion" name="descripcion" [(ngModel)]="language.descripcion"></textarea>
+      </div>
+    </div>
+    <div class="crud-form__actions">
+      <button class="btn btn-info" type="submit">{{ accion }}</button>
+    </div>
+  </form>
+</ng-template>

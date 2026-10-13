@@ -1,0 +1,55 @@
+@if (perfil(); as perfil) {
+  <div class="perfil">
+    <div class="card">
+      <div class="card-header card-header-info">
+        <h4 class="card-title">Editar Perfil</h4>
+        <p class="card-category">Completa tu perfil</p>
+      </div>
+      <div class="card-body">
+        <div class="crud-form">
+          <app-image-upload
+            [src]="foto(perfil)"
+            [title]="perfil.nombre"
+            [deletable]="!!perfil.media?.idmedia"
+            (fileChange)="onFile($event)"
+            (delete)="deleteImage(perfil)"
+          />
+          <form (ngSubmit)="updatePerfil(perfil)">
+            <h4 class="crud-form__heading">Información básica</h4>
+            <div class="crud-form__grid">
+              <div class="crud-form__field form-group">
+                <label class="crud-form__label" for="nombre">Nombres</label>
+                <input class="form-control" id="nombre" name="nombre" [(ngModel)]="perfil.nombre" type="text" />
+              </div>
+              <div class="crud-form__field form-group">
+                <label class="crud-form__label" for="apellidos">Apellidos</label>
+                <input class="form-control" id="apellidos" name="apellidos" [(ngModel)]="perfil.apellidos" type="text" />
+              </div>
+              <div class="crud-form__field crud-form__field--wide form-group">
+                <label class="crud-form__label" for="email">E-mail</label>
+                <input class="form-control" id="email" name="email" [(ngModel)]="perfil.email" type="email" />
+              </div>
+            </div>
+
+            <h4 class="crud-form__heading">Cambiar contraseña</h4>
+            <div class="crud-form__grid">
+              <div class="crud-form__field form-group">
+                <label class="crud-form__label" for="password_actual">Contraseña actual</label>
+                <input class="form-control" id="password_actual" name="password_actual" [(ngModel)]="perfil.password_actual"
+                       type="password" autocomplete="current-password" />
+              </div>
+              <div class="crud-form__field form-group">
+                <label class="crud-form__label" for="password_nuevo">Nueva contraseña</label>
+                <input class="form-control" id="password_nuevo" name="password_nuevo" [(ngModel)]="perfil.password_nuevo"
+                       type="password" autocomplete="new-password" />
+              </div>
+            </div>
+            <div class="crud-form__actions">
+              <button class="btn btn-info" type="submit">Actualizar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+}

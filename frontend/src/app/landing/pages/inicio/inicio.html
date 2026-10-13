@@ -1,0 +1,57 @@
+@if (intro.showLoader()) {
+  <app-loader [open]="intro.revealed()" />
+}
+
+<app-hero
+  title="Romario Augusto Estrada Flórez"
+  subtitle="Desarrollador Web Full Stack"
+  [subtitleClickable]="true"
+  [revealed]="intro.revealed()"
+  (subtitleClick)="nav.fullstack()"
+>
+  <div heroBackground class="inicio__hero-background" appParallax>
+    <img alt="" [src]="imagenUno" />
+  </div>
+</app-hero>
+
+<section class="inicio__section">
+  <ul class="features">
+    @for (feature of features; track feature.title) {
+      <li class="features__item">
+        <i class="features__icon material-icons" [appHoverAnimate]="feature.animation">{{ feature.icon }}</i>
+        <h2 class="features__title">{{ feature.title }}</h2>
+        <p class="features__text">{{ feature.text }}</p>
+      </li>
+    }
+  </ul>
+</section>
+
+<app-banner [image]="imagenDos" title="Desarrollo de funcionalidad" edgeTop="rtl" edgeBottom="ltr" />
+
+<section class="inicio__section">
+  <app-language-grid [languages]="frontEndLanguages" (select)="lenguajeAbierto.set($event)" />
+</section>
+
+<app-banner [image]="imagenTres" title="Desarrollo de servicios" edgeTop="ltr" edgeBottom="rtl" />
+
+<section class="inicio__section">
+  <app-language-grid [languages]="backEndLanguages" (select)="lenguajeAbierto.set($event)" />
+</section>
+
+<app-footer [mostrarContacto]="true" />
+
+@if (lenguajeAbierto(); as language) {
+  <app-bottom-sheet [open]="true" (openChange)="cerrar($event)" [color]="language.porcentaje!.circleColor">
+    <div class="language-detail">
+      <img class="language-detail__image" [src]="language.imgUrlModal" [alt]="language.title" />
+      <div class="language-detail__body">
+        <h3 class="language-detail__title" [style.color]="language.porcentaje!.circleColor">{{ language.title }}</h3>
+        <p class="language-detail__text">{{ language.descripcion }}</p>
+        <div class="language-detail__level">
+          <span class="language-detail__level-label" [style.color]="language.porcentaje!.circleColor">Nivel:</span>
+          <app-liquid-gauge class="language-detail__gauge" [value]="language.porcentaje!.valor" [colors]="language.porcentaje!" />
+        </div>
+      </div>
+    </div>
+  </app-bottom-sheet>
+}

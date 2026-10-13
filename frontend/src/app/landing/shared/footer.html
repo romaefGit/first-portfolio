@@ -1,0 +1,39 @@
+@if (mostrarContacto()) {
+  <section class="contact" aria-labelledby="contact-title">
+    @if (!enviado()) {
+      <h2 class="contact__title animated bounceIn" id="contact-title">Contacto</h2>
+
+      <form class="contact__form" #correoForm="ngForm" (ngSubmit)="enviarCorreo(correoForm)">
+        <div class="contact__field">
+          <label class="contact__label" for="contacto_nombre">Nombre</label>
+          <input class="contact__input" id="contacto_nombre" name="nombre" [(ngModel)]="data.nombre" required type="text" />
+        </div>
+        <div class="contact__field">
+          <label class="contact__label" for="contacto_correo">Correo</label>
+          <input class="contact__input" id="contacto_correo" name="correo" [(ngModel)]="data.correo" required email type="email" />
+        </div>
+        <div class="contact__field contact__field--wide">
+          <label class="contact__label" for="contacto_mensaje">Mensaje</label>
+          <textarea class="contact__input contact__input--multiline" id="contacto_mensaje" name="mensaje"
+                    [(ngModel)]="data.mensaje" required rows="3"></textarea>
+        </div>
+        <div class="contact__actions">
+          <button class="contact__submit btn waves-effect waves-light cyan darken-1" type="submit" aria-label="Enviar">
+            <i class="material-icons">send</i>
+          </button>
+        </div>
+      </form>
+    } @else {
+      <div class="contact__thanks animated bounceIn">
+        <h2 class="contact__thanks-title">¡Muchas gracias por contactarse conmigo!</h2>
+        <p class="contact__thanks-text">Muy pronto estaremos en contacto</p>
+      </div>
+    }
+  </section>
+}
+
+<div class="site-footer__copyright">
+  <div class="site-footer__inner">
+    Hecho con <span class="site-footer__tech">Angular y Materialize</span>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+@if (intro.showLoader()) {
+  <app-loader [open]="intro.revealed()" />
+}
+
+<app-banner [image]="imagenUno" title="Experiencia" titleId="meta_title" edgeBottom="ltr">
+  <app-atom />
+</app-banner>
+<app-menu-button />
+
+<section class="hoja-de-vida__section">
+  <p class="hoja-de-vida__intro" id="meta_description">
+    En lo largo de mi vida profesional he trabajado en el desarrollo de paginas web y aplicaciones hibridas, llevo 4 años en
+    esto y tengo conocimientos en diferentes lenguajes para la web que pueden ayudar mucho a la hora de llevar a cabo un
+    proyecto.
+  </p>
+</section>
+
+<app-banner [image]="imagenDos" title="Aprendizaje" edgeTop="rtl" edgeBottom="ltr" />
+
+<section class="hoja-de-vida__section">
+  <ul class="card-grid">
+    @for (empresa of empresas; track empresa.nombreToSelector) {
+      <li class="card-grid__item">
+        <app-experience-card [item]="empresa" (more)="abierta.set(empresa)" />
+      </li>
+    }
+  </ul>
+</section>
+
+<app-banner [image]="imagenTres" title="Estudios" edgeTop="ltr" edgeBottom="rtl" />
+
+<section class="hoja-de-vida__section">
+  <ul class="card-grid">
+    @for (estudio of estudios; track estudio.nombreToSelector) {
+      <li class="card-grid__item">
+        <app-experience-card [item]="estudio" (more)="abierta.set(estudio)" />
+      </li>
+    }
+  </ul>
+</section>
+
+<app-footer />
+
+@if (abierta(); as item) {
+  <app-bottom-sheet [open]="true" (openChange)="cerrar($event)" [color]="item.colorText">
+    <div class="experience-detail">
+      <div class="experience-detail__media" [style.background]="item.color">
+        <img class="experience-detail__image" [src]="item.urlImagen" [alt]="item.titulo" />
+      </div>
+      <div class="experience-detail__body">
+        <h3 class="experience-detail__title" [style.color]="item.colorText">{{ item.titulo }}</h3>
+        <p class="experience-detail__text">{{ item.descripcion }}</p>
+        @if (item.lenguajesAprendidos.length) {
+          <h4 class="experience-detail__subtitle" [style.color]="item.colorText">Aprendí más sobre:</h4>
+          <ul class="chip-list">
+            @for (language of item.lenguajesAprendidos; track language.nombreToSelector) {
+              <li class="chip-list__item chip" [appHoverAnimate]="animacionesChip">
+                <img class="chip-list__icon" [src]="language.imgUrl" alt="" />
+                {{ language.title }}
+              </li>
+            }
+          </ul>
+        }
+      </div>
+    </div>
+  </app-bottom-sheet>
+}

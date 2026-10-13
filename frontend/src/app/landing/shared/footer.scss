@@ -1,0 +1,122 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+:host {
+  display: block;
+  background-color: $color-footer;
+  color: $color-white;
+}
+
+// ---- contacto ----
+.contact {
+  @include content-width;
+  @include section-spacing;
+  padding-bottom: space(5);
+}
+
+.contact__title {
+  margin: 0 0 space(4);
+  text-align: center;
+  font-size: 2.28rem;
+  font-weight: 400;
+  color: $color-accent;
+}
+
+.contact__form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: space(3) space(4);
+
+  @include below(sm) {
+    grid-template-columns: 1fr;
+    gap: space(3);
+  }
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: space(1);
+
+  &--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.contact__label {
+  font-size: 0.9rem;
+  color: rgba($color-white, 0.7);
+}
+
+// Materialize estiliza input[type=...] directamente; la clase BEM + el atributo
+// de encapsulación de Angular tienen más especificidad.
+.contact__input {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: space(1) 0;
+  font-size: 1rem;
+  color: $color-white;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid $color-accent;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+  transition: border-color $transition-fast;
+
+  &:focus {
+    border-bottom-color: $color-white;
+    box-shadow: none;
+  }
+
+  &--multiline {
+    min-height: space(10);
+    resize: vertical;
+    font-family: inherit;
+  }
+}
+
+.contact__actions {
+  grid-column: 1 / -1;
+}
+
+.contact__submit {
+  width: 74px;
+  border-radius: $radius-pill;
+}
+
+.contact__thanks {
+  text-align: center;
+}
+
+.contact__thanks-title {
+  margin: 0 0 space(2);
+  font-size: 2.28rem;
+  font-weight: 400;
+  color: $color-white;
+}
+
+.contact__thanks-text {
+  margin: 0;
+  font-size: 1.64rem;
+  color: $color-white;
+}
+
+// ---- copyright ----
+.site-footer__copyright {
+  background-color: rgba(51, 51, 51, 0.08);
+  color: rgba($color-white, 0.8);
+  font-weight: 300;
+  font-size: 0.9rem;
+}
+
+.site-footer__inner {
+  @include content-width;
+  padding-block: space(2);
+}
+
+.site-footer__tech {
+  color: #90caf9;
+}

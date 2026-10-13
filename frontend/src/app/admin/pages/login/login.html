@@ -1,0 +1,80 @@
+<div class="page-header clear-filter">
+  <div class="content-center">
+    <div class="col-md-8 ml-auto mr-auto">
+      <div class="brand">
+        <h1 class="title text-white">romaef</h1>
+        <h3 class="description">Bienvenido al administrador</h3>
+        <br />
+        <button class="btn btn-success btn-round btn-lg" type="button" (click)="modal.set('login')">Iniciar sesión</button>
+        <button class="btn btn-info btn-round btn-lg" type="button" (click)="modal.set('signup')">Registrarse</button>
+      </div>
+    </div>
+  </div>
+  <div class="page-header-image" style="background-image: url('/public/images/2.jpeg')"></div>
+</div>
+
+@if (modal() === 'login') {
+  <div class="modal fade show" style="display: block" role="dialog" tabindex="-1" (click)="modal.set(null)">
+    <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+      <form class="modal-content" (ngSubmit)="login(autenticacion)">
+        <div class="modal-header">
+          <h3 class="modal-title text-center">Iniciar sesión</h3>
+          <button aria-label="Cerrar" class="close" type="button" (click)="modal.set(null)">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-form-label" for="login-email">Correo:</label>
+            <input class="form-control" id="login-email" name="email" [(ngModel)]="autenticacion.email" type="email" autocomplete="username" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="login-password">Contraseña:</label>
+            <input class="form-control" id="login-password" name="password" [(ngModel)]="autenticacion.password" type="password" autocomplete="current-password" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show"></div>
+}
+
+@if (modal() === 'signup') {
+  <div class="modal fade show" style="display: block" role="dialog" tabindex="-1" (click)="modal.set(null)">
+    <div class="modal-dialog" role="document" (click)="$event.stopPropagation()">
+      <form class="modal-content" (ngSubmit)="signup()">
+        <div class="modal-header">
+          <h3 class="modal-title text-center">Regístro</h3>
+          <button aria-label="Cerrar" class="close" type="button" (click)="modal.set(null)">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label class="col-form-label" for="signup-nombre">Nombres</label>
+            <input class="form-control" id="signup-nombre" name="nombre" [(ngModel)]="registro.nombre" type="text" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="signup-apellidos">Apellidos</label>
+            <input class="form-control" id="signup-apellidos" name="apellidos" [(ngModel)]="registro.apellidos" type="text" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="signup-email">E-mail</label>
+            <input class="form-control" id="signup-email" name="email" [(ngModel)]="registro.email" type="email" />
+          </div>
+          <div class="form-group">
+            <label class="col-form-label" for="signup-password">Contraseña</label>
+            <input class="form-control" id="signup-password" name="password" [(ngModel)]="registro.password" type="password" autocomplete="new-password" />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-success" type="submit">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-backdrop fade show"></div>
+}

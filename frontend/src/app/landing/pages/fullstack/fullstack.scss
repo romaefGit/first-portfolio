@@ -1,0 +1,139 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+$efecto: '/public/landing/img/elegidas/efecto';
+$role-colors: (
+  'orange': #ff9800,
+  'green': #4caf50,
+  'teal': #009688,
+  'red': #f44336,
+);
+
+:host {
+  display: block;
+}
+
+// ---- hero con fondo animado (antes fullstack.css) ----
+.fullstack__hero {
+  border-bottom: 5px solid $color-green;
+}
+
+.fullstack__hero-background {
+  position: absolute;
+  inset: 0;
+  background-color: #1e2a35;
+  background-image: url('#{$efecto}/1.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  animation: fullstack-background 3s linear infinite alternate;
+}
+
+@keyframes fullstack-background {
+  0% { background-image: url('#{$efecto}/1.png'); }
+  20% { background-image: url('#{$efecto}/2.png'); }
+  40% { background-image: url('#{$efecto}/4.png'); }
+  60% { background-image: url('#{$efecto}/5.png'); }
+  80% { background-image: url('#{$efecto}/6.png'); }
+  100% { background-image: url('#{$efecto}/7.png'); }
+}
+
+// ---- artículo ----
+.article {
+  @include content-width;
+  @include section-spacing;
+  display: flex;
+  flex-direction: column;
+}
+
+.article__icon {
+  align-self: center;
+  margin-bottom: space(2);
+  font-size: 42px;
+  color: $color-green;
+  cursor: pointer;
+}
+
+.article__title {
+  margin: 0 0 space(5);
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.article__highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: space(3) space(4);
+  margin-bottom: space(5);
+
+  @include below(sm) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.article__quote {
+  @include body-text;
+  margin: 0;
+  padding-left: space(1.5);
+  border-left: 4px dotted $color-divider;
+
+  &--wide {
+    grid-column: 1 / -1;
+  }
+}
+
+.article__paragraph {
+  @include body-text;
+  margin: 0 0 space(3);
+
+  &--last {
+    margin: space(4) 0 0;
+  }
+}
+
+// ---- lista de profesionales ----
+.role-list {
+  @include list-reset;
+}
+
+.role-list__item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: space(2);
+  padding-block: space(2);
+  border-bottom: 1px solid #e0e0e0;
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+
+.role-list__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: $color-white;
+
+  @each $name, $color in $role-colors {
+    &--#{$name} {
+      background-color: $color;
+    }
+  }
+}
+
+.role-list__title {
+  margin: 0 0 space(0.5);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.role-list__text {
+  @include body-text;
+  margin: 0;
+}

@@ -1,0 +1,54 @@
+// Design tokens. Todos los espacios salen de `space()` para que el ritmo vertical sea consistente.
+@use 'sass:map';
+
+// ---- Espaciado: escala de 8px ----
+$space-unit: 8px;
+
+/// space(1) = 8px, space(2) = 16px, space(0.5) = 4px ...
+@function space($steps) {
+  @return $steps * $space-unit;
+}
+
+$section-padding: space(8); // 64px entre secciones de contenido
+$section-padding-mobile: space(5); // 40px
+$gutter: space(2); // espacio lateral mínimo en móvil
+
+// ---- Breakpoints (los mismos de Materialize) ----
+$breakpoints: (
+  sm: 600px,
+  md: 992px,
+  lg: 1200px,
+);
+
+// ---- Colores ----
+$color-white: #fff;
+$color-black: #000;
+$color-text: rgba(0, 0, 0, 0.87);
+$color-text-muted: rgba(0, 0, 0, 0.6);
+
+$color-brand: #08ade3; // sidenav
+$color-accent: #18ffff; // títulos y líneas del formulario de contacto
+$color-green: #77d099; // íconos destacados
+$color-footer: #3b4854;
+$color-divider: #e1e1e1;
+$color-edge-shadow: #384c55a8;
+
+$color-admin-primary: #00bcd4; // azure de material-dashboard
+$color-admin-success: #34b027;
+$color-admin-danger: #d83131;
+$color-admin-muted: #666;
+
+// ---- Tipografía ----
+$font-size-body: 20px;
+$font-size-body-mobile: 16px;
+$line-height-body: 2rem;
+$text-shadow-hero: 1px 1px 5px #000000d1;
+
+// ---- Otros ----
+$radius-pill: 999px;
+$transition-fast: 0.2s ease;
+$transition-bounce: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+@function breakpoint($name) {
+  @return map.get($breakpoints, $name);
+}

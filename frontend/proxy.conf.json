@@ -1,0 +1,7 @@
+{
+  "/server": { "target": "http://localhost:3000", "secure": false },
+  "/public": { "target": "http://localhost:3000", "secure": false },
+  "/languages-img": { "target": "http://localhost:3000", "secure": false },
+  "/empresas-img": { "target": "http://localhost:3000", "secure": false },
+  "/articulos-img": { "target": "http://localhost:3000", "secure": false }
+}

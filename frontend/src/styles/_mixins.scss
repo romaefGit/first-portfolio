@@ -1,0 +1,85 @@
+@use 'tokens' as *;
+
+/// Hasta el breakpoint (inclusive), como `hide-on-small-only` de Materialize.
+@mixin below($name) {
+  @media (max-width: breakpoint($name)) {
+    @content;
+  }
+}
+
+/// Desde el breakpoint en adelante.
+@mixin above($name) {
+  @media (min-width: breakpoint($name) + 1px) {
+    @content;
+  }
+}
+
+/// Ancho de lectura centrado con gutter lateral (reemplaza `.container` donde no hay grid).
+@mixin content-width($max: 960px) {
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $gutter;
+}
+
+/// Ritmo vertical estándar de una sección.
+@mixin section-spacing {
+  padding-block: $section-padding;
+
+  @include below(sm) {
+    padding-block: $section-padding-mobile;
+  }
+}
+
+/// Texto de párrafo del landing.
+@mixin body-text {
+  font-size: $font-size-body;
+  line-height: $line-height-body;
+  font-weight: 300;
+
+  @include below(sm) {
+    font-size: $font-size-body-mobile;
+  }
+}
+
+/// Capa de fondo con imagen para ParallaxDirective (antes `.parallax` de Materialize).
+@mixin parallax-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+
+  img {
+    display: none; // la directiva la muestra al calcular la posición
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translateX(-50%);
+  }
+}
+
+/// Texto blanco sobre imagen.
+@mixin text-on-image {
+  color: rgba($color-white, 0.9);
+  text-shadow: $text-shadow-hero;
+}
+
+/// Reinicia una lista para usarla como layout.
+@mixin list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/// Resetea un <button> para usarlo como ícono clicable.
+@mixin button-reset {
+  appearance: none;
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}

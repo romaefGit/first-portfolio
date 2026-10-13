@@ -1,0 +1,131 @@
+// Base del admin: ajustes sobre material-dashboard (antes public/admin/style.css y public/stylesheets/style.css).
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.admin {
+  display: block;
+
+  // línea verde al enfocar los inputs
+  .form-control,
+  .is-focused .form-control {
+    background-image:
+      linear-gradient(to top, $color-admin-success 2px, transparent 2px),
+      linear-gradient(to top, #d2d2d2 1px, transparent 1px);
+  }
+
+  .form-group {
+    margin: 0 0 space(3);
+    padding-bottom: 0;
+  }
+
+  .sidebar::before {
+    background-color: $color-white;
+  }
+
+  // modales centrados verticalmente
+  .modal-dialog {
+    min-height: calc(100vh - #{space(8)});
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include below(sm) {
+      min-height: calc(100vh - #{space(3)});
+    }
+  }
+
+  .dropdown-menu .dropdown-item:hover,
+  .dropdown-menu .dropdown-item:focus {
+    color: $color-white;
+    background-color: $color-admin-primary;
+    box-shadow:
+      0 4px 20px 0 rgba(0, 0, 0, 0.14),
+      0 7px 10px -5px rgba($color-admin-primary, 0.4);
+  }
+
+  .text-info {
+    color: $color-admin-primary;
+  }
+}
+
+// Bloques compartidos por las páginas del admin. Van dentro de .admin para ganarle
+// en especificidad a material-dashboard (.card .card-title, .form-control...).
+.admin {
+  // ---- Formulario de crear/editar (páginas CRUD y perfil) ----
+  .crud-form {
+    display: block;
+    padding: 0 space(1) space(2);
+  }
+
+  .crud-form__heading {
+    margin: space(4) 0 space(3);
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: #3c4858;
+  }
+
+  .crud-form__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: space(1) space(4);
+
+    @include below(sm) {
+      grid-template-columns: 1fr;
+    }
+
+    // misma altura para input y select, así las líneas quedan alineadas
+    .form-control {
+      height: 36px;
+    }
+
+    .crud-form__textarea {
+      height: auto;
+      min-height: space(10);
+      resize: vertical;
+    }
+  }
+
+  .crud-form__field {
+    &--wide {
+      grid-column: 1 / -1;
+    }
+  }
+
+  .crud-form__label {
+    display: block;
+    margin: 0 0 space(0.5);
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+
+  .crud-form__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: space(2);
+    margin-top: space(2);
+  }
+
+  // ---- Tabla de listado ----
+  .data-table__thumb {
+    display: block;
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+  }
+
+  .data-table__actions {
+    display: flex;
+    gap: space(2);
+    white-space: nowrap;
+  }
+
+  .data-table__action {
+    @include button-reset;
+    color: $color-admin-primary;
+
+    &--danger {
+      color: #f44336;
+    }
+  }
+}

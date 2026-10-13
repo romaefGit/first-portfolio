@@ -1,0 +1,113 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+:host {
+  position: relative;
+  display: block;
+}
+
+.hoja-de-vida__section {
+  @include content-width;
+  @include section-spacing;
+}
+
+.hoja-de-vida__intro {
+  @include body-text;
+  margin: 0;
+  text-align: center;
+}
+
+// ---- tarjetas: todas del mismo alto en cada fila ----
+.card-grid {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: space(3);
+}
+
+.card-grid__item {
+  flex: 0 1 calc(25% - #{space(3) * 0.75});
+  min-width: 200px;
+
+  @include below(md) {
+    flex-basis: calc(50% - #{space(3) * 0.5});
+  }
+
+  @include below(sm) {
+    flex-basis: 100%;
+  }
+}
+
+// ---- detalle (bottom sheet) ----
+.experience-detail {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: start;
+  gap: space(4);
+
+  @include below(sm) {
+    grid-template-columns: 1fr;
+    gap: space(2);
+  }
+}
+
+.experience-detail__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 245px;
+  height: 245px;
+  margin-inline: auto;
+
+  @include below(sm) {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+.experience-detail__image {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.experience-detail__title {
+  margin: 0 0 space(2);
+  font-size: 2.92rem;
+  font-weight: 400;
+  text-align: center;
+
+  @include below(sm) {
+    font-size: 2rem;
+  }
+}
+
+.experience-detail__text {
+  @include body-text;
+  margin: 0 0 space(3);
+}
+
+.experience-detail__subtitle {
+  margin: 0 0 space(1.5);
+  font-size: 1.64rem;
+  font-weight: 400;
+}
+
+.chip-list {
+  @include list-reset;
+  display: flex;
+  flex-wrap: wrap;
+  gap: space(1);
+}
+
+// .chip es de Materialize; aquí solo se ajusta el espaciado
+.chip-list__item {
+  margin: 0;
+  padding: 0 space(1.5) 0 0;
+  cursor: pointer;
+}
+
+.chip-list__icon {
+  margin-right: space(1);
+}

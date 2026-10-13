@@ -1,0 +1,112 @@
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+:host {
+  display: block;
+}
+
+.inicio__hero-background {
+  @include parallax-layer;
+}
+
+.inicio__section {
+  @include content-width;
+  @include section-spacing;
+}
+
+// ---- features ----
+.features {
+  @include list-reset;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: space(5);
+
+  @include below(sm) {
+    grid-template-columns: 1fr;
+    gap: space(6);
+  }
+}
+
+.features__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space(2);
+}
+
+.features__icon {
+  font-size: 42px;
+  color: $color-green;
+  cursor: pointer;
+}
+
+.features__title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.features__text {
+  @include body-text;
+  margin: 0;
+}
+
+// ---- detalle del lenguaje (bottom sheet) ----
+.language-detail {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) 2fr;
+  align-items: center;
+  gap: space(4);
+
+  @include below(sm) {
+    grid-template-columns: 1fr;
+    gap: space(2);
+  }
+}
+
+.language-detail__image {
+  display: block;
+  width: 100%;
+  max-width: 240px;
+  margin-inline: auto;
+
+  @include below(sm) {
+    max-width: 140px;
+  }
+}
+
+.language-detail__title {
+  margin: 0 0 space(2);
+  font-size: 2.92rem;
+  font-weight: 400;
+  text-align: center;
+
+  @include below(sm) {
+    font-size: 2rem;
+  }
+}
+
+.language-detail__text {
+  @include body-text;
+  margin: 0 0 space(3);
+}
+
+.language-detail__level {
+  display: flex;
+  align-items: center;
+  gap: space(3);
+}
+
+.language-detail__level-label {
+  font-size: 2.28rem;
+
+  @include below(sm) {
+    font-size: 1.6rem;
+  }
+}
+
+.language-detail__gauge {
+  flex: 0 0 100px;
+}

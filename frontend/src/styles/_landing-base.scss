@@ -1,0 +1,20 @@
+// Base del landing: ajustes sobre Materialize que valen para todas sus páginas.
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+.landing {
+  display: block;
+  overflow-x: hidden;
+
+  p {
+    @include body-text;
+    margin: 0 0 space(2);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+}

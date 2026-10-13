@@ -1,0 +1,59 @@
+@if (intro.showLoader()) {
+  <app-loader [open]="intro.revealed()" />
+}
+
+<app-hero class="fullstack__hero" title="Full stack" subtitle='"Al son que le tocan baila"' [revealed]="intro.revealed()">
+  <div heroBackground class="fullstack__hero-background"></div>
+</app-hero>
+
+<article class="article">
+  <i class="article__icon material-icons" appHoverAnimate="jello">flash_on</i>
+  <h2 class="article__title" id="meta_title">¿Que es un desarrollador full stack?</h2>
+
+  <div class="article__highlights">
+    <p class="article__quote" id="meta_description" appHoverAnimate="pulse">
+      En resumen es la persona que en su vida a a adquirido una fascinación por la programación y los lenguajes que la
+      conforman, entre ellos los nuevos, los viejos, los de mayor escalabilidad, los de baja y alta libertad
+    </p>
+    <p class="article__quote" appHoverAnimate="pulse">
+      En lo que lleva de experiencia se da cuenta que la gran mayoría de programadores están enfocados en solo aprender un
+      lenguaje, certificarse y trabajar en el toda su vida.
+    </p>
+    <p class="article__quote article__quote--wide" appHoverAnimate="pulse">
+      Allí entra la inspiración de un esarrollador full stack 'El todero', el que sabe de Front y Back. Al que le piden
+      algo y sin saber como hacerlo, investiga, piensa, propone y desarrolla soluciones basado en su variada experiencia.
+    </p>
+  </div>
+
+  <p class="article__paragraph">
+    Adentrandonos más, un desarrollador de Front-End es el encargado de hacer la parte visual de como se va a ver el
+    sistema de cara el cliente, que botones, menus, colores, secciones y demás cosas que pueda llevar la parte gráfica y
+    funcional, todo esto se hace por código HTML y CSS en el caso de las páginas web, formularios y una que otra animación
+    se hace con JavaScript o alguna librería o lenguaje que se derive de este.
+  </p>
+  <p class="article__paragraph">
+    Un desarrollador de Back-End es el que hace las funcionalidades del sistema, es en donde se establece conexión con la
+    información que se muestra, que se guarda, se edita o se elimina, todo esto se hace por medio de un servidor al cual
+    llega la información y se conecta dinamicamente a una base de datos.
+  </p>
+  <p class="article__paragraph">En en un proyecto web, trabajan varios profesionales:</p>
+
+  <ul class="role-list">
+    @for (p of profesionales; track p.titulo) {
+      <li class="role-list__item">
+        <i class="role-list__icon material-icons" [class]="'role-list__icon--' + p.color" appHoverAnimate="jello">{{ p.icono }}</i>
+        <div class="role-list__body">
+          <h3 class="role-list__title">{{ p.titulo }}</h3>
+          <p class="role-list__text">{{ p.descripcion }}</p>
+        </div>
+      </li>
+    }
+  </ul>
+
+  <p class="article__paragraph article__paragraph--last">
+    Un desarrollador Full stack sabe de todas estos temas, tiene la capacidad de fascinarse con todo esto y puede dar
+    solución a cualquier problema.
+  </p>
+</article>
+
+<app-footer />

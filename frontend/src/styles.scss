@@ -1,0 +1,14 @@
+/*
+ * Estilos globales.
+ * - Materialize (landing) y material-dashboard (admin) siguen siendo CSS de terceros que
+ *   ThemeService carga desde /public según la sección.
+ * - Lo propio de cada componente vive en su .scss con nombres BEM.
+ * - Aquí solo va lo que aplica a toda una sección, encerrado en su bloque (.landing / .admin)
+ *   para que una sección no afecte a la otra.
+ */
+@use 'landing-base';
+@use 'admin-base';
+
+.u-pointer {
+  cursor: pointer;
+}

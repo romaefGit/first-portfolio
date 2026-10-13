@@ -1,0 +1,91 @@
+<div class="card">
+  <app-crud-tabs [tab]="tab()" [editLabel]="editando()?.nombre ?? null" (tabChange)="setTab($event)" />
+
+  <div class="card-body">
+    @switch (tab()) {
+      @case (1) {
+        <div class="table-responsive">
+          <table class="table table-hover data-table">
+            <thead>
+              <tr>
+                <th>Logo</th>
+                <th>Nombre</th>
+                <th>Selector</th>
+                <th>Descripción</th>
+                <th>Propiedades</th>
+                <th>Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (empresa of items(); track empresa.idempresa) {
+                <tr>
+                  <td><img class="data-table__thumb" [src]="imageOf(empresa)" [alt]="empresa.nombre" /></td>
+                  <td>{{ empresa.nombre }}</td>
+                  <td>{{ empresa.selector }}</td>
+                  <td>{{ resumen(empresa.descripcion) }}</td>
+                  <td>{{ empresa.propiedades }}</td>
+                  <td>
+                    <div class="data-table__actions">
+                      <button class="data-table__action" type="button" aria-label="Editar" (click)="openEdit(empresa)">
+                        <i class="material-icons">edit</i>
+                      </button>
+                      <button class="data-table__action data-table__action--danger" type="button" aria-label="Eliminar"
+                              (click)="confirmDelete(empresa)">
+                        <i class="material-icons">delete_forever</i>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+      }
+      @case (2) {
+        <div class="crud-form">
+          <app-image-upload [src]="imageOf(null)" [title]="nuevo.nombre ?? ''" (fileChange)="file = $event" />
+          <ng-container *ngTemplateOutlet="formulario; context: { $implicit: nuevo, accion: 'Crear' }" />
+        </div>
+      }
+      @case (3) {
+        @if (editando(); as empresa) {
+          <div class="crud-form">
+            <app-image-upload [src]="imageOf(empresa)" [title]="empresa.nombre" (fileChange)="file = $event" />
+            <ng-container *ngTemplateOutlet="formulario; context: { $implicit: empresa, accion: 'Editar' }" />
+          </div>
+        }
+      }
+    }
+  </div>
+</div>
+
+<ng-template #formulario let-empresa let-accion="accion">
+  <form (ngSubmit)="accion === 'Crear' ? crear(empresa) : editar(empresa)">
+    <h4 class="crud-form__heading">Información básica</h4>
+    <div class="crud-form__grid">
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <label class="crud-form__label" for="nombre">Nombre</label>
+        <input class="form-control" id="nombre" name="nombre" [(ngModel)]="empresa.nombre" type="text" />
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="selector">Selector</label>
+        <input class="form-control" id="selector" name="selector" [(ngModel)]="empresa.selector" type="text" />
+      </div>
+      <div class="crud-form__field form-group">
+        <label class="crud-form__label" for="propiedades">Propiedades</label>
+        <input class="form-control" id="propiedades" name="propiedades" [(ngModel)]="empresa.propiedades" type="text" />
+      </div>
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <label class="crud-form__label" for="descripcion">Descripción</label>
+        <textarea class="form-control crud-form__textarea" id="descripcion" name="descripcion" [(ngModel)]="empresa.descripcion"></textarea>
+      </div>
+      <div class="crud-form__field crud-form__field--wide form-group">
+        <span class="crud-form__label">Lenguajes aprendidos</span>
+        <app-multi-select [suggestions]="languages()" [(selected)]="seleccionados" property="nombre" key="idlanguage" />
+      </div>
+    </div>
+    <div class="crud-form__actions">
+      <button class="btn btn-info" type="submit">{{ accion }}</button>
+    </div>
+  </form>
+</ng-template>
